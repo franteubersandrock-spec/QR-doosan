@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Gestión - Admisión y Sobrealimentación</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f4f7f6; color: #333; line-height: 1.6; padding: 15px; margin: 0; }
+        .container { max-width: 800px; margin: 0 auto; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); border-top: 5px solid #0056b3; }
+        h1 { color: #0056b3; font-size: 1.5rem; text-align: center; border-bottom: 2px solid #eee; padding-bottom: 10px; }
+        h2 { color: #444; font-size: 1.2rem; background: #eef2f5; padding: 8px; border-left: 4px solid #0056b3; margin-top: 20px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 10px; font-size: 0.9rem; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background-color: #0056b3; color: white; }
+        .critical { font-weight: bold; color: #d9534f; }
+        .non-critical { font-weight: bold; color: #5cb85c; }
+        ul { margin-top: 0; padding-left: 20px; }
+        .footer { text-align: center; margin-top: 30px; font-size: 0.8rem; color: #777; border-top: 1px solid #ddd; padding-top: 10px;}
+        
+        /* Estilos para la encuesta interactiva */
+        .checklist-container { margin-top: 15px; }
+        .checklist-item { display: flex; align-items: flex-start; margin-bottom: 10px; padding: 12px; background: #fff; border: 1px solid #cce5ff; border-radius: 6px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); transition: background 0.3s; }
+        .checklist-item:hover { background: #f0f8ff; }
+        .checklist-item input[type="checkbox"] { margin-right: 15px; margin-top: 4px; transform: scale(1.5); cursor: pointer; }
+        .checklist-text { flex: 1; font-size: 0.95rem; cursor: pointer; }
+        .checklist-note { font-size: 0.8rem; color: #666; font-style: italic; margin-top: 4px; display: block; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Panel de Gestión de Mantenimiento<br>Doosan P126TI-II - Admisión y Sobrealimentación</h1>
+
+        <h2>1. Criticidad de Subconjuntos</h2>
+        <table>
+            <tr><th>Subconjunto</th><th>Clasificación</th><th>Justificación de FMECA</th></tr>
+            <tr><td>Turbocompresor</td><td class="critical">CRÍTICO</td><td>La falla de cojinetes detiene el equipo con riesgo catastrófico interno por partículas (S=8).</td></tr>
+            <tr><td>Intercooler (Aire-Aire)</td><td class="critical">CRÍTICO</td><td>Ensuciamiento progresivo es una falla oculta que eleva silenciosamente el estrés térmico del motor.</td></tr>
+            <tr><td>Filtro de Aire</td><td class="non-critical">NO CRÍTICO</td><td>El indicador de restricción alerta antes de averías mayores, permitiendo cambio correctivo/preventivo.</td></tr>
+            <tr><td>Colector de Admisión</td><td class="non-critical">NO CRÍTICO</td><td>Fuga por empaquetaduras tiene fácil detección auditiva y no paraliza la máquina de inmediato.</td></tr>
+        </table>
+
+        <h2>2. Trabajos de Mantenimiento y Horas-Hombre</h2>
+        <table>
+            <tr><th>Cod.</th><th>Trabajo de Intervención</th><th>Frec.</th><th>HH Total</th></tr>
+            <tr><td>T-01</td><td>Cambio del cartucho del filtro de aire</td><td>400 h</td><td>0.5 HH (1 pers x 0.5h)</td></tr>
+            <tr><td>T-02</td><td>Limpieza exterior aletas del Intercooler</td><td>600 h</td><td>1.0 HH (1 pers x 1.0h)</td></tr>
+            <tr><td>T-03</td><td>Medición holgura axial/radial rotor Turbo</td><td>3000 h</td><td>6.0 HH (2 pers x 3.0h)</td></tr>
+        </table>
+        <p style="font-size: 0.8rem; color: #555;"><em>* Estimaciones propias del grupo basadas en la accesibilidad en el Laboratorio de Máquinas. Frecuencias según manual Doosan.</em></p>
+
+        <h2>3. Herramientas Específicas</h2>
+        <ul>
+            <li><strong>Turbocompresor:</strong> Reloj comparador milimétrico y base magnética articulada <em>(Requiere Certificado Calibración ISO 17025)</em>.</li>
+            <li><strong>Intercooler:</strong> Pistola de aire comprimido (boquilla 90°, máx. 5 bar) y cepillo de cerdas plásticas (no metálicas).</li>
+            <li><strong>Colector de admisión:</strong> Llave dinamométrica (Torquímetro) calibrada.</li>
+        </ul>
+
+        <h2>4. Seguridad y Energías Residuales</h2>
+        <table>
+            <tr><th>Riesgo / Energía</th><th>Medida de Control y Gestión</th></tr>
+            <tr><td><strong>Energía Térmica</strong></td><td>Turbo/múltiple superan 700°C. Comprobar T° (<40°C) con pirómetro antes de intervenir.</td></tr>
+            <tr><td><strong>Rotacional (Inercia)</strong></td><td>Rotor del turbo sigue girando tras la parada. No abrir ductos inmediatamente.</td></tr>
+            <tr><td><strong>Química (MARPOL I)</strong></td><td>Disponer de trapos con aceites/solventes en recipientes rojos para residuos peligrosos.</td></tr>
+        </table>
+
+        <h2>5. Encuesta de Verificación Previa (Check-list Operativo)</h2>
+        <p style="font-size: 0.85rem; color: #555;"><em>Marque las casillas tocando la pantalla para confirmar la disponibilidad de equipos antes de iniciar la intervención, garantizando el análisis previo de riesgo exigido.</em></p>
+        
+        <div class="checklist-container">
+            <div class="checklist-item">
+                <input type="checkbox" id="chk1">
+                <label for="chk1" class="checklist-text">¿Se aplicó el bloqueo y etiquetado (LOTO) en el tablero de arranque?
+                <span class="checklist-note">Medida base obligatoria para prevenir arranque inesperado.</span></label>
+            </div>
+            
+            <div class="checklist-item">
+                <input type="checkbox" id="chk2">
+                <label for="chk2" class="checklist-text">¿Se comprobó la disipación de energía térmica y rotacional del Turbocompresor?
+                <span class="checklist-note">Uso de pirómetro para confirmar que las caracolas están frías al tacto.</span></label>
+            </div>
+
+            <div class="checklist-item">
+                <input type="checkbox" id="chk3">
+                <label for="chk3" class="checklist-text">¿Dispone de gafas de sello hermético y mascarilla para polvo?
+                <span class="checklist-note">EPP específico para la proyección de partículas al usar aire a presión en el Intercooler.</span></label>
+            </div>
+
+            <div class="checklist-item">
+                <input type="checkbox" id="chk4">
+                <label for="chk4" class="checklist-text">¿Se leyeron las Hojas de Datos de Seguridad (HDS) de los solventes a utilizar?
+                <span class="checklist-note">Conocimiento obligatorio del riesgo químico asociado.</span></label>
+            </div>
+
+            <div class="checklist-item">
+                <input type="checkbox" id="chk5">
+                <label for="chk5" class="checklist-text">¿Están disponibles los depósitos para la gestión de residuos según el Anexo I del MARPOL?
+                <span class="checklist-note">Para trapos contaminados con hidrocarburos o químicos.</span></label>
+            </div>
+        </div>
+
+        <div class="footer">
+            Taller de Especialización II - Gestión y Mantención de Máquinas Marinas<br>
+            <strong>Equipo: Doosan P126TI-II/SDMO D330 (LMM)</strong><br>
+            Alumno(a): Francisco Teuber Sandrock
+        </div>
+    </div>
+</body>
+</html>

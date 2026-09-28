@@ -13,7 +13,6 @@
         table { width: 100%; border-collapse: collapse; margin-top: 10px; font-size: 0.9rem; background: #fff; }
         th, td { border: 1px solid #ddd; padding: 10px; text-align: left; vertical-align: top; }
         th { background-color: #f0f8ff; color: #004080; }
-        .critical { font-weight: bold; color: #d9534f; }
         
         .epp-box { background: #fff3cd; border-left: 5px solid #ffc107; padding: 15px; margin-bottom: 20px; border-radius: 4px; }
         .epp-box ul { margin: 10px 0 0 0; padding-left: 20px; }
@@ -33,7 +32,13 @@
         #btn-desbloquear:disabled { background-color: #ccc; cursor: not-allowed; color: #666; }
         #seccion-mantenimiento { display: none; animation: fadeIn 0.8s ease-in-out; }
         
-        .img-componente { width: 100%; max-width: 400px; height: auto; border-radius: 6px; margin: 10px auto; display: block; border: 1px solid #ddd; }
+        .img-componente { width: 100%; max-width: 400px; height: auto; border-radius: 6px; margin: 15px auto; display: block; border: 1px solid #ddd; }
+        
+        .pasos-mantenimiento { margin-top: 10px; padding-left: 20px; }
+        .pasos-mantenimiento li { margin-bottom: 10px; text-align: justify;}
+
+        .tools-box { background: #f8f9fa; border: 1px solid #ccc; padding: 15px; border-radius: 6px; margin-bottom: 15px; }
+        .tools-box h4 { margin-top: 0; color: #333; }
 
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
         .footer { text-align: center; margin-top: 30px; font-size: 0.8rem; color: #777; border-top: 1px solid #ddd; padding-top: 15px; }
@@ -51,43 +56,43 @@
                 <div class="checklist-item" style="border-color: #d9534f; background: #fff;">
                     <input type="checkbox" id="chk-loto" class="chk-seguridad">
                     <label for="chk-loto" class="checklist-text">Confirmo que se ha aplicado el bloqueo físico y etiquetado en el tablero de arranque y desconexión de baterías del generador.
-                    <span class="checklist-note">Sin esta confirmación inicial, es imposible proceder al mantenimiento.</span></label>
+                    <span class="checklist-note">Sin esta confirmación inicial, es absolutamente prohibido proceder al mantenimiento.</span></label>
                 </div>
             </div>
 
             <h2>Fase 1: Ropa e Implementos de Seguridad</h2>
             <div class="epp-box">
-                <strong>El equipo de 2 personas debe portar:</strong>
+                <strong>El equipo técnico (dotación de 2 personas) debe portar:</strong>
                 <ul>
-                    <li><strong>Ropa de trabajo ajustada:</strong> (Overol) para evitar atrapamientos con partes móviles.</li>
-                    <li><strong>Zapatos de seguridad:</strong> Suela antideslizante ante derrames de fluidos.</li>
-                    <li><strong>Gafas herméticas y Mascarilla:</strong> Obligatorias para limpieza neumática.</li>
-                    <li><strong>Guantes térmicos/mecánicos:</strong> Para prevención de quemaduras graves en turbo y colector.</li>
+                    <li><strong>Ropa de trabajo ajustada:</strong> (Overol) para evitar enganches o atrapamientos con poleas y correas expuestas.</li>
+                    <li><strong>Calzado de seguridad:</strong> Suela resistente a hidrocarburos y antideslizante ante posibles fugas de aceite.</li>
+                    <li><strong>Gafas de sello hermético y Mascarilla particulada:</strong> Obligatorias durante la aplicación de aire comprimido en limpieza.</li>
+                    <li><strong>Guantes de nitrilo y mecánicos/térmicos:</strong> Prevención de dermatitis por químicos y quemaduras por superficies a alta temperatura (múltiple de escape/turbo).</li>
                 </ul>
             </div>
 
-            <h2>Fase 2: Análisis Previo de Riesgos</h2>
+            <h2>Fase 2: Análisis Previo de Riesgos (APR)</h2>
             
             <div class="checklist-container">
                 <div class="checklist-item">
                     <input type="checkbox" id="chk2" class="chk-seguridad">
                     <label for="chk2" class="checklist-text">¿Se comprobó la disipación térmica y detención inercial del Turbocompresor?
-                    <span class="checklist-note">Uso de pirómetro para confirmar que las caracolas están a <40°C y el rotor completamente detenido.</span></label>
+                    <span class="checklist-note">Validar con pirómetro infrarrojo que las caracolas están a <40°C y el eje totalmente detenido.</span></label>
                 </div>
                 <div class="checklist-item">
                     <input type="checkbox" id="chk3" class="chk-seguridad">
                     <label for="chk3" class="checklist-text">¿Ambos técnicos cuentan con sus EPP completos colocados correctamente?
-                    <span class="checklist-note">Inspección mutua (gafas, guantes, mascarilla, overol).</span></label>
+                    <span class="checklist-note">Inspección cruzada de gafas, guantes, mascarilla y overol cerrado.</span></label>
                 </div>
                 <div class="checklist-item">
                     <input type="checkbox" id="chk4" class="chk-seguridad">
                     <label for="chk4" class="checklist-text">¿Se revisaron las Hojas de Datos de Seguridad (HDS) de los solventes?
-                    <span class="checklist-note">Lectura de riesgos químicos para el lavado del intercooler.</span></label>
+                    <span class="checklist-note">Protocolo obligatorio ante exposición a vapores tóxicos o contacto dérmico en limpieza.</span></label>
                 </div>
                 <div class="checklist-item">
                     <input type="checkbox" id="chk5" class="chk-seguridad">
                     <label for="chk5" class="checklist-text">¿Están dispuestos los depósitos para residuos peligrosos (MARPOL Anexo I)?
-                    <span class="checklist-note">Receptáculos rojos habilitados para trapos con aceites y solventes.</span></label>
+                    <span class="checklist-note">Receptáculos estancos (rojos) habilitados para trapos con aceites y solventes inflamables.</span></label>
                 </div>
             </div>
 
@@ -95,84 +100,125 @@
         </div>
 
         <div id="seccion-mantenimiento">
-            <h2>1. Trabajos de Mantenimiento y Horas-Hombre</h2>
+            
+            <h2>1. Resumen de HH y Herramientas Requeridas</h2>
+            
             <table>
                 <tr><th>Cod.</th><th>Trabajo de Intervención</th><th>Frec.</th><th>HH Total</th></tr>
-                <tr><td>T-01</td><td>Cambio del cartucho del filtro de aire</td><td>400 h</td><td>1.0 HH (2 pers x 0.5h)</td></tr>
-                <tr><td>T-02</td><td>Limpieza exterior aletas del Intercooler</td><td>600 h</td><td>2.0 HH (2 pers x 1.0h)</td></tr>
-                <tr><td>T-03</td><td>Medición holgura axial/radial rotor Turbo</td><td>3000 h</td><td>6.0 HH (2 pers x 3.0h)</td></tr>
+                <tr><td>T-01</td><td>Inspección/Cambio de filtro de aire</td><td>200/400 h</td><td>1.0 HH (2 pers x 0.5h)</td></tr>
+                <tr><td>T-02</td><td>Limpieza de aletas del Intercooler</td><td>600 h</td><td>2.0 HH (2 pers x 1.0h)</td></tr>
+                <tr><td>T-03</td><td>Medición holgura axial/radial Turbo</td><td>3000 h</td><td>6.0 HH (2 pers x 3.0h)</td></tr>
+                <tr><td>T-04</td><td>Sustitución juntas Colector Admisión</td><td>Condición</td><td>4.0 HH (2 pers x 2.0h)</td></tr>
             </table>
 
-            <h2>2. Pauta Técnica por Subconjunto</h2>
+            <div class="tools-box" style="margin-top: 15px;">
+                <h4>⚙️ Herramientas Genéricas y Específicas</h4>
+                <ul>
+                    <li><strong>Genéricas:</strong> Juego de llaves combinadas milimétricas, juego de dados y chicharra, destornilladores, rasqueta plástica/bronce (para no rayar aluminio), linterna de inspección.</li>
+                    <li><strong>Específicas:</strong> Pistola de aire comprimido con boquilla doblada a 90° (presión regulada a 5 bar), base magnética articulada pesada.</li>
+                </ul>
+                <h4 style="margin-top: 15px; color: #d9534f;">📋 Instrumentos sujetos a Calibración Vigente (ISO 17025)</h4>
+                <ul>
+                    <li><strong>Reloj Comparador de Carátula:</strong> Rango milimétrico (precisión mínima de 0.01 mm).</li>
+                    <li><strong>Llave Dinamométrica (Torquímetro):</strong> Rango operativo que cubra de 1 a 10 kg·m con certificado vigente.</li>
+                    <li><strong>Pirómetro Infrarrojo:</strong> Para asegurar lectura térmica correcta de los metales antes de intervenir.</li>
+                </ul>
+            </div>
+
+            <h2>2. Pauta Técnica Detallada por Subconjunto (Manual Doosan)</h2>
             
             <h3>A. Filtro de Aire</h3>
-            <img src="https://placehold.co/600x300/eef2f5/004080?text=Imagen+Filtro+de+Aire+Doosan" alt="Filtro de Aire" class="img-componente">
+            <img src="filtro.jpg" alt="Filtro de Aire" class="img-componente">
             <table>
                 <tr>
-                    <th width="25%">Dotación</th>
-                    <td><strong>2 Personas</strong></td>
+                    <th width="25%">Dotación Asignada</th>
+                    <td><strong>2 Personas</strong> (Técnico 1: Ejecución | Técnico 2: Inspección a trasluz e iluminación)</td>
                 </tr>
                 <tr>
-                    <th>Procedimiento y Límite</th>
-                    <td>Soplar el elemento desde adentro hacia afuera. <strong>Presión máxima del aire: 5 bar (500 kPa).</strong><br><em>Advertencia: Jamás golpear el filtro contra una superficie dura. Si la restricción persiste, reemplazar.</em></td>
+                    <th>Procedimiento Paso a Paso</th>
+                    <td>
+                        <ol class="pasos-mantenimiento">
+                            <li>Revisar el indicador visual de restricción antes de proceder al desmontaje.</li>
+                            <li>Aflojar la tuerca mariposa/fijación y extraer el elemento de papel cuidadosamente para no soltar polvo hacia la admisión.</li>
+                            <li>Vaciar la taza de recolección de polvo (dust bowl) y destapar la válvula de descarga de goma.</li>
+                            <li>Limpiar el interior de la carcasa <strong>únicamente con un paño húmedo libre de pelusas</strong>. <em>Nunca soplar aire comprimido dentro de la carcasa vacía.</em></li>
+                            <li>Si corresponde limpieza (antes de las 400h): Soplar el elemento desde el centro hacia afuera moviendo la boquilla a 90° verticalmente. <strong>Presión de aire: 5 bar máximo. No golpear contra el suelo.</strong></li>
+                            <li>Técnico 2: Inspeccionar los pliegues con linterna desde el interior. Si se aprecian haces de luz penetrando el papel (grietas), sustituir el filtro inmediatamente.</li>
+                            <li>Montar elemento, asentar el sello de goma y resetear el indicador visual.</li>
+                        </ol>
+                    </td>
                 </tr>
             </table>
 
             <h3>B. Intercooler (Enfriador Aire-Aire)</h3>
-            <img src="https://placehold.co/600x300/eef2f5/004080?text=Imagen+Intercooler+Doosan" alt="Intercooler" class="img-componente">
+            <img src="intercooler.jpg" alt="Intercooler" class="img-componente">
             <table>
                 <tr>
-                    <th width="25%">Dotación</th>
-                    <td><strong>2 Personas</strong></td>
+                    <th width="25%">Dotación Asignada</th>
+                    <td><strong>2 Personas</strong> (Técnico 1: Desmontaje y lavado | Técnico 2: Soporte y gestión de solventes)</td>
                 </tr>
                 <tr>
-                    <th>Procedimiento</th>
-                    <td>Limpieza exterior del panal para mantener la transferencia térmica óptima. El aire comprimido entrante a los cilindros debe reducirse a un <strong>máximo de 50°C</strong>.</td>
+                    <th>Procedimiento Paso a Paso</th>
+                    <td>
+                        <ol class="pasos-mantenimiento">
+                            <li>Desmontar mangueras de silicona de entrada/salida. <strong>Punto de control:</strong> Verificar presencia excesiva de aceite en el interior de los ductos (indica desgaste grave de sellos del turbocompresor).</li>
+                            <li>Inspeccionar mangueras por fatiga térmica, resecamiento o grietas.</li>
+                            <li>Aplicar solvente dieléctrico o desengrasante no ácido en la parte externa del panal. Dejar actuar y frotar suavemente con cepillo de cerdas plásticas (el metal raya las aletas).</li>
+                            <li>Soplar con aire a baja presión. Comprobar que no existan aletas deformadas (enderezar con peine de aletas si es necesario).</li>
+                            <li>Reinstalar y aplicar torque a abrazaderas de alta presión para asegurar estanqueidad total. Temperatura de salida debe mantenerse en un <strong>máximo de 50°C</strong>.</li>
+                        </ol>
+                    </td>
                 </tr>
             </table>
 
             <h3>C. Turbocompresor</h3>
-            <img src="https://placehold.co/600x300/eef2f5/004080?text=Imagen+Turbocompresor+Doosan" alt="Turbocompresor" class="img-componente">
+            <img src="turbo.jpg" alt="Turbocompresor" class="img-componente">
             <table>
                 <tr>
-                    <th width="25%">Dotación</th>
-                    <td><strong>2 Personas</strong> (Requerido para posicionar base magnética y manipular rotor).</td>
+                    <th width="25%">Dotación Asignada</th>
+                    <td><strong>2 Personas</strong> (Técnico 1: Instala y lee instrumentos | Técnico 2: Ejecuta movimientos del eje)</td>
                 </tr>
                 <tr>
-                    <th>Límites de Desgaste</th>
+                    <th>Procedimiento y Tolerancias</th>
                     <td>
-                        <ul>
-                            <li><strong>Juego Axial (Rotor):</strong> Límite máximo: <strong>0.20 mm</strong>.</li>
-                            <li><strong>Juego Radial:</strong> Límite máximo: <strong>0.11 mm</strong>.</li>
-                        </ul>
+                        <ol class="pasos-mantenimiento">
+                            <li>Asegurar enfriamiento y aplicar limpieza externa al CHRA (Cuerpo Central) antes de desconectar ductos.</li>
+                            <li>Desconectar ductos de aire y líneas de lubricación (suministro y retorno). Tapar orificios inmediatamente para evitar ingreso de cuerpos extraños.</li>
+                            <li>Girar el rotor del compresor manualmente: debe girar libre y continuo, sin resistencias ni ruidos metálicos.</li>
+                            <li>Fijar la base magnética en la carcasa limpia y asentar el puntero del reloj comparador en el centro del eje del rotor.</li>
+                            <li><strong>Medir Juego Axial:</strong> Técnico 2 empuja y tira del eje en sentido longitudinal (hacia adentro y afuera). Técnico 1 registra la lectura del reloj. <br><span class="critical">Límite máximo de desgaste: 0.20 mm.</span></li>
+                            <li><strong>Medir Juego Radial:</strong> Reubicar el palpador a través del orificio de drenaje de aceite o sobre la tuerca del impulsor. Mover el eje verticalmente (arriba/abajo) aplicando fuerza igual en ambos extremos. <br><span class="critical">Límite máximo de desgaste: 0.11 mm.</span></li>
+                            <li>Superar estas tolerancias exige el reemplazo inmediato del turbo para evitar el roce de álabes y destrucción del motor.</li>
+                        </ol>
                     </td>
                 </tr>
             </table>
 
             <h3>D. Colector de Admisión</h3>
-            <img src="https://placehold.co/600x300/eef2f5/004080?text=Imagen+Colector+Admision+Doosan" alt="Colector de Admisión" class="img-componente">
+            <img src="colector.jpg" alt="Colector de Admisión" class="img-componente">
             <table>
                 <tr>
-                    <th width="25%">Dotación</th>
-                    <td><strong>2 Personas</strong></td>
+                    <th width="25%">Dotación Asignada</th>
+                    <td><strong>2 Personas</strong> (Soporte de peso del múltiple y apriete sincronizado)</td>
                 </tr>
                 <tr>
-                    <th>Torques de Apriete</th>
+                    <th>Procedimiento y Torques</th>
                     <td>
-                        <ul>
-                            <li>Pernos <strong>M10</strong>: Torque de <strong>4.4 kg·m</strong></li>
-                            <li>Pernos <strong>M8</strong>: Torque de <strong>2.2 kg·m</strong></li>
-                        </ul>
+                        <ol class="pasos-mantenimiento">
+                            <li>Aflojar pernos en secuencia inversa al apriete (desde los extremos hacia el centro) para liberar tensión y evitar alabeo de la pieza. Retirar el colector.</li>
+                            <li>Remover restos de juntas (gaskets) viejas de la culata usando <strong>únicamente rasquetas de plástico o bronce</strong> para no rayar las superficies de sellado.</li>
+                            <li>Limpiar los puertos de admisión con paños e instalar empaquetaduras nuevas asegurando correcta orientación y calce de espárragos.</li>
+                            <li>Acercar todos los pernos manualmente a tope.</li>
+                            <li><strong>Torque Final:</strong> Utilizar llave dinamométrica en <strong>patrón cruzado</strong> (desde el centro hacia los extremos).
+                                <ul style="margin-top: 5px; background: #eef2f5; padding: 10px 10px 10px 30px; border-radius: 4px;">
+                                    <li>Pernos <strong>M10</strong>: Torque de <strong>4.4 kg·m</strong></li>
+                                    <li>Pernos <strong>M8</strong>: Torque de <strong>2.2 kg·m</strong></li>
+                                </ul>
+                            </li>
+                        </ol>
                     </td>
                 </tr>
             </table>
-
-            <h2>3. Herramientas Específicas</h2>
-            <ul>
-                <li><strong>Turbo:</strong> Reloj comparador milimétrico y base magnética articulada. *(ISO 17025)*.</li>
-                <li><strong>Limpieza:</strong> Pistola de aire comprimido (boquilla 90°, 5 bar), cepillo de cerdas plásticas.</li>
-                <li><strong>Colector:</strong> Llave dinamométrica (Torquímetro) calibrada para torques de 2.2 y 4.4 kg·m.</li>
-            </ul>
         </div>
 
         <div class="footer">

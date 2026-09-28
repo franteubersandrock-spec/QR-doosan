@@ -21,6 +21,9 @@
         .loto-box { background: #fdf2f2; border: 2px solid #d9534f; padding: 20px; text-align: center; border-radius: 6px; margin-bottom: 20px; }
         .loto-box h2 { background: transparent; color: #d9534f; font-size: 1.5rem; margin: 0 0 10px 0; padding: 0; }
 
+        .cierre-box { background: #e8f5e9; border: 2px solid #28a745; padding: 20px; border-radius: 6px; margin-top: 30px; margin-bottom: 20px; }
+        .cierre-box h2 { background: transparent; color: #2e7d32; font-size: 1.3rem; margin: 0 0 15px 0; padding: 0; text-align: center; }
+
         .checklist-container { margin-top: 15px; }
         .checklist-item { display: flex; align-items: flex-start; margin-bottom: 10px; padding: 12px; background: #fff; border: 1px solid #cce5ff; border-radius: 6px; transition: background 0.3s; }
         .checklist-item:hover { background: #f0f8ff; }
@@ -30,7 +33,11 @@
         
         #btn-desbloquear { display: block; width: 100%; padding: 15px; margin-top: 25px; background-color: #28a745; color: white; font-size: 1.1rem; font-weight: bold; border: none; border-radius: 6px; cursor: pointer; transition: 0.3s; text-transform: uppercase; letter-spacing: 1px; }
         #btn-desbloquear:disabled { background-color: #ccc; cursor: not-allowed; color: #666; }
+        
+        #btn-finalizar { display: block; width: 100%; padding: 15px; margin-top: 20px; background-color: #6c757d; color: white; font-size: 1.1rem; font-weight: bold; border: none; border-radius: 6px; cursor: not-allowed; transition: 0.3s; text-transform: uppercase; letter-spacing: 1px; }
+        
         #seccion-mantenimiento { display: none; animation: fadeIn 0.8s ease-in-out; }
+        #mensaje-exito { display: none; background: #d4edda; color: #155724; border: 1px solid #c3e6cb; padding: 20px; border-radius: 6px; text-align: center; margin-top: 20px; font-weight: bold; font-size: 1.1rem; }
         
         .img-componente { width: 100%; max-width: 400px; height: auto; border-radius: 6px; margin: 15px auto; display: block; border: 1px solid #ddd; }
         
@@ -127,7 +134,7 @@
                 </ul>
             </div>
 
-            <h2>2. Pauta Técnica Detallada por Subconjunto (Manual Doosan)</h2>
+            <h2>2. Pauta Técnica Detallada por Subconjunto</h2>
             
             <h3>A. Filtro de Aire</h3>
             <img src="https://raw.githubusercontent.com/franteubersandrock-spec/QR-doosan/main/filtro.png" alt="Filtro de Aire" class="img-componente">
@@ -137,7 +144,7 @@
                     <td><strong>2 Personas</strong> (Técnico 1: Ejecución y sopleteado | Técnico 2: Inspección a trasluz e iluminación)</td>
                 </tr>
                 <tr>
-                    <th>Procedimiento Paso a Paso (Manual Doosan)</th>
+                    <th>Procedimiento Paso a Paso</th>
                     <td>
                         <ol class="pasos-mantenimiento">
                             <li><strong>Verificación preliminar:</strong> Revisar el indicador de restricción de aire en el panel para constatar si existe saturación antes de abrir el conjunto.</li>
@@ -160,7 +167,7 @@
                     <td><strong>2 Personas</strong> (Técnico 1: Desmontaje y lavado químico | Técnico 2: Soporte y control de fugas)</td>
                 </tr>
                 <tr>
-                    <th>Procedimiento Paso a Paso (Manual Doosan)</th>
+                    <th>Procedimiento Paso a Paso</th>
                     <td>
                         <ol class="pasos-mantenimiento">
                             <li><strong>Desconexión de ductos:</strong> Aflojar las abrazaderas de alta resistencia y retirar las mangueras de silicona flexibles que conectan el turbocompresor con el intercooler y la admisión.</li>
@@ -182,7 +189,7 @@
                     <td><strong>2 Personas</strong> (Técnico 1: Operación de instrumentos de precisión | Técnico 2: Manipulación y tracción del eje)</td>
                 </tr>
                 <tr>
-                    <th>Procedimiento Paso a Paso y Tolerancias (Manual Doosan)</th>
+                    <th>Procedimiento Paso a Paso y Tolerancias</th>
                     <td>
                         <ol class="pasos-mantenimiento">
                             <li><strong>Preparación y seguridad:</strong> Confirmar el enfriamiento completo del bloque central (CHRA) y limpiar externamente la zona antes de desacoplar los conductos de escape, admisión y las líneas metálicas de lubricación.</li>
@@ -205,7 +212,7 @@
                     <td><strong>2 Personas</strong> (Técnico 1: Alineación y apriete dinámico | Técnico 2: Soporte físico y control de torque)</td>
                 </tr>
                 <tr>
-                    <th>Procedimiento Paso a Paso y Torques (Manual Doosan)</th>
+                    <th>Procedimiento Paso a Paso y Torques</th>
                     <td>
                         <ol class="pasos-mantenimiento">
                             <li><strong>Desmontaje secuencial:</strong> Para evitar deformaciones o alabeos estructurales en la fundición del colector, aflojar los pernos de fijación siguiendo un <strong>orden inverso al apriete</strong> (desde los pernos extremos hacia el centro de manera progresiva). Retirar la pieza.</li>
@@ -222,6 +229,42 @@
                     </td>
                 </tr>
             </table>
+
+            <!-- FASE DE CIERRE Y VERIFICACIÓN POST-MANTENIMIENTO -->
+            <div class="cierre-box">
+                <h2>📋 Fase 3: Encuesta de Cierre y Verificación Post-Mantenimiento</h2>
+                <p style="text-align: center; font-size: 0.95rem; margin-bottom: 15px;">Validación obligatoria antes de retirar bloqueos y energizar el equipo:</p>
+                
+                <div class="checklist-container">
+                    <div class="checklist-item" style="background: #fff;">
+                        <input type="checkbox" id="cierre-1" class="chk-cierre">
+                        <label for="cierre-1" class="checklist-text">¿Se retiraron todas las herramientas manuales, instrumentos y elementos extraños del área de trabajo?
+                        <span class="checklist-note">Revisión visual exhaustiva del vano del motor y bancadas.</span></label>
+                    </div>
+                    <div class="checklist-item" style="background: #fff;">
+                        <input type="checkbox" id="cierre-2" class="chk-cierre">
+                        <label for="cierre-2" class="checklist-text">¿Se confirmó la ausencia absoluta de piezas, trapos, tornillos u objetos sueltos al interior de los conductos y cámara del motor?
+                        <span class="checklist-note">Prevención crítica de daños catastróficos por ingestión de cuerpos extraños.</span></label>
+                    </div>
+                    <div class="checklist-item" style="background: #fff;">
+                        <input type="checkbox" id="cierre-3" class="chk-cierre">
+                        <label for="cierre-3" class="checklist-text">¿Quedaron todas las piezas, abrazaderas, uniones y pernos firmemente instalados en su lugar con su respectivo torque?
+                        <span class="checklist-note">Verificación cruzada de estanqueidad en línea de admisión y sobrealimentación.</span></label>
+                    </div>
+                    <div class="checklist-item" style="background: #fff;">
+                        <input type="checkbox" id="cierre-4" class="chk-cierre">
+                        <label for="cierre-4" class="checklist-text">¿Se realizó el orden, limpieza total de la zona de trabajo y disposición de residuos peligrosos (MARPOL)?
+                        <span class="checklist-note">Área de operación despejada, libre de derrames y herramientas ordenadas en carro.</span></label>
+                    </div>
+                </div>
+
+                <button id="btn-finalizar" disabled>Certificar Cierre Exitoso de Mantención</button>
+            </div>
+
+            <div id="mensaje-exito">
+                🎉 ¡Mantenimiento certificado con éxito! El sistema de Admisión y Sobrealimentación del Doosan P126TI-II se encuentra operativo y seguro para liberar el bloqueo LOTO.
+            </div>
+
         </div>
 
         <div class="footer">
@@ -233,17 +276,19 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            const checkboxes = document.querySelectorAll('.chk-seguridad');
+            const checkboxesSeg = document.querySelectorAll('.chk-seguridad');
             const btnDesbloquear = document.getElementById('btn-desbloquear');
             const seccionMantenimiento = document.getElementById('seccion-mantenimiento');
             const seccionEncuesta = document.getElementById('seccion-encuesta');
 
-            function revisarEstado() {
+            const checkboxesCierre = document.querySelectorAll('.chk-cierre');
+            const btnFinalizar = document.getElementById('btn-finalizar');
+            const mensajeExito = document.getElementById('mensaje-exito');
+
+            function revisarSeguridad() {
                 let todasMarcadas = true;
-                checkboxes.forEach(function(chk) {
-                    if (!chk.checked) {
-                        todasMarcadas = false;
-                    }
+                checkboxesSeg.forEach(function(chk) {
+                    if (!chk.checked) todasMarcadas = false;
                 });
                 
                 if (todasMarcadas) {
@@ -257,14 +302,43 @@
                 }
             }
 
-            checkboxes.forEach(function(chk) {
-                chk.addEventListener('change', revisarEstado);
+            function revisarCierre() {
+                let cierreMarcadas = true;
+                checkboxesCierre.forEach(function(chk) {
+                    if (!chk.checked) cierreMarcadas = false;
+                });
+
+                if (cierreMarcadas) {
+                    btnFinalizar.disabled = false;
+                    btnFinalizar.style.backgroundColor = "#28a745";
+                    btnFinalizar.style.cursor = "pointer";
+                    btnFinalizar.textContent = "✓ CERTIFICAR CIERRE EXITOSO DE MANTENCIÓN";
+                } else {
+                    btnFinalizar.disabled = true;
+                    btnFinalizar.style.backgroundColor = "#6c757d";
+                    btnFinalizar.style.cursor = "not-allowed";
+                    btnFinalizar.textContent = "Certificar Cierre Exitoso de Mantención";
+                }
+            }
+
+            checkboxesSeg.forEach(function(chk) {
+                chk.addEventListener('change', revisarSeguridad);
+            });
+
+            checkboxesCierre.forEach(function(chk) {
+                chk.addEventListener('change', revisarCierre);
             });
 
             btnDesbloquear.addEventListener('click', function() {
                 seccionMantenimiento.style.display = 'block';
                 seccionEncuesta.style.display = 'none';
                 window.scrollTo(0, 0);
+            });
+
+            btnFinalizar.addEventListener('click', function() {
+                btnFinalizar.style.display = 'none';
+                mensajeExito.style.display = 'block';
+                window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
             });
         });
     </script>

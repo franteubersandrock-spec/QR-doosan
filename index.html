@@ -3,99 +3,176 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Panel de Gestión - Admisión y Sobrealimentación</title>
+    <title>Panel QR - Admisión y Sobrealimentación Doosan</title>
     <style>
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f4f7f6; color: #333; line-height: 1.6; padding: 15px; margin: 0; }
-        .container { max-width: 800px; margin: 0 auto; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); border-top: 5px solid #0056b3; }
-        h1 { color: #0056b3; font-size: 1.5rem; text-align: center; border-bottom: 2px solid #eee; padding-bottom: 10px; }
-        h2 { color: #444; font-size: 1.2rem; background: #eef2f5; padding: 8px; border-left: 4px solid #0056b3; margin-top: 20px; }
-        table { width: 100%; border-collapse: collapse; margin-top: 10px; font-size: 0.9rem; }
-        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
-        th { background-color: #0056b3; color: white; }
+        .container { max-width: 850px; margin: 0 auto; background: white; padding: 25px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.15); border-top: 6px solid #004080; }
+        h1 { color: #004080; font-size: 1.6rem; text-align: center; border-bottom: 2px solid #eee; padding-bottom: 10px; margin-top: 0; }
+        h2 { color: #fff; font-size: 1.2rem; background: #0056b3; padding: 10px; border-radius: 4px; margin-top: 25px; }
+        h3 { color: #004080; font-size: 1.1rem; border-bottom: 1px solid #ccc; padding-bottom: 5px; margin-top: 25px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 10px; font-size: 0.9rem; background: #fff; }
+        th, td { border: 1px solid #ddd; padding: 10px; text-align: left; vertical-align: top; }
+        th { background-color: #f0f8ff; color: #004080; }
         .critical { font-weight: bold; color: #d9534f; }
-        .non-critical { font-weight: bold; color: #5cb85c; }
-        ul { margin-top: 0; padding-left: 20px; }
-        .footer { text-align: center; margin-top: 30px; font-size: 0.8rem; color: #777; border-top: 1px solid #ddd; padding-top: 10px;}
         
-        /* Estilos para la encuesta interactiva */
+        .epp-box { background: #fff3cd; border-left: 5px solid #ffc107; padding: 15px; margin-bottom: 20px; border-radius: 4px; }
+        .epp-box ul { margin: 10px 0 0 0; padding-left: 20px; }
+        .epp-box li { margin-bottom: 5px; }
+
+        .loto-box { background: #fdf2f2; border: 2px solid #d9534f; padding: 20px; text-align: center; border-radius: 6px; margin-bottom: 20px; }
+        .loto-box h2 { background: transparent; color: #d9534f; font-size: 1.5rem; margin: 0 0 10px 0; padding: 0; }
+
         .checklist-container { margin-top: 15px; }
-        .checklist-item { display: flex; align-items: flex-start; margin-bottom: 10px; padding: 12px; background: #fff; border: 1px solid #cce5ff; border-radius: 6px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); transition: background 0.3s; }
+        .checklist-item { display: flex; align-items: flex-start; margin-bottom: 10px; padding: 12px; background: #fff; border: 1px solid #cce5ff; border-radius: 6px; transition: background 0.3s; }
         .checklist-item:hover { background: #f0f8ff; }
         .checklist-item input[type="checkbox"] { margin-right: 15px; margin-top: 4px; transform: scale(1.5); cursor: pointer; }
-        .checklist-text { flex: 1; font-size: 0.95rem; cursor: pointer; }
-        .checklist-note { font-size: 0.8rem; color: #666; font-style: italic; margin-top: 4px; display: block; }
+        .checklist-text { flex: 1; font-size: 0.95rem; cursor: pointer; font-weight: 500; }
+        .checklist-note { font-size: 0.8rem; color: #666; font-style: italic; margin-top: 4px; display: block; font-weight: normal; }
+        
+        #btn-desbloquear { display: block; width: 100%; padding: 15px; margin-top: 25px; background-color: #28a745; color: white; font-size: 1.1rem; font-weight: bold; border: none; border-radius: 6px; cursor: pointer; transition: 0.3s; text-transform: uppercase; letter-spacing: 1px; }
+        #btn-desbloquear:disabled { background-color: #ccc; cursor: not-allowed; color: #666; }
+        #seccion-mantenimiento { display: none; animation: fadeIn 0.8s ease-in-out; }
+        
+        .img-componente { width: 100%; max-width: 400px; height: auto; border-radius: 6px; margin: 10px auto; display: block; border: 1px solid #ddd; }
+
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        .footer { text-align: center; margin-top: 30px; font-size: 0.8rem; color: #777; border-top: 1px solid #ddd; padding-top: 15px; }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Panel de Gestión de Mantenimiento<br>Doosan P126TI-II - Admisión y Sobrealimentación</h1>
+        <h1>Panel de Gestión QR: Admisión y Sobrealimentación<br><small style="color: #666; font-size: 1rem;">Grupo Electrógeno Doosan P126TI-II</small></h1>
 
-        <h2>1. Criticidad de Subconjuntos</h2>
-        <table>
-            <tr><th>Subconjunto</th><th>Clasificación</th><th>Justificación de FMECA</th></tr>
-            <tr><td>Turbocompresor</td><td class="critical">CRÍTICO</td><td>La falla de cojinetes detiene el equipo con riesgo catastrófico interno por partículas (S=8).</td></tr>
-            <tr><td>Intercooler (Aire-Aire)</td><td class="critical">CRÍTICO</td><td>Ensuciamiento progresivo es una falla oculta que eleva silenciosamente el estrés térmico del motor.</td></tr>
-            <tr><td>Filtro de Aire</td><td class="non-critical">NO CRÍTICO</td><td>El indicador de restricción alerta antes de averías mayores, permitiendo cambio correctivo/preventivo.</td></tr>
-            <tr><td>Colector de Admisión</td><td class="non-critical">NO CRÍTICO</td><td>Fuga por empaquetaduras tiene fácil detección auditiva y no paraliza la máquina de inmediato.</td></tr>
-        </table>
-
-        <h2>2. Trabajos de Mantenimiento y Horas-Hombre</h2>
-        <table>
-            <tr><th>Cod.</th><th>Trabajo de Intervención</th><th>Frec.</th><th>HH Total</th></tr>
-            <tr><td>T-01</td><td>Cambio del cartucho del filtro de aire</td><td>400 h</td><td>0.5 HH (1 pers x 0.5h)</td></tr>
-            <tr><td>T-02</td><td>Limpieza exterior aletas del Intercooler</td><td>600 h</td><td>1.0 HH (1 pers x 1.0h)</td></tr>
-            <tr><td>T-03</td><td>Medición holgura axial/radial rotor Turbo</td><td>3000 h</td><td>6.0 HH (2 pers x 3.0h)</td></tr>
-        </table>
-        <p style="font-size: 0.8rem; color: #555;"><em>* Estimaciones propias del grupo basadas en la accesibilidad en el Laboratorio de Máquinas. Frecuencias según manual Doosan.</em></p>
-
-        <h2>3. Herramientas Específicas</h2>
-        <ul>
-            <li><strong>Turbocompresor:</strong> Reloj comparador milimétrico y base magnética articulada <em>(Requiere Certificado Calibración ISO 17025)</em>.</li>
-            <li><strong>Intercooler:</strong> Pistola de aire comprimido (boquilla 90°, máx. 5 bar) y cepillo de cerdas plásticas (no metálicas).</li>
-            <li><strong>Colector de admisión:</strong> Llave dinamométrica (Torquímetro) calibrada.</li>
-        </ul>
-
-        <h2>4. Seguridad y Energías Residuales</h2>
-        <table>
-            <tr><th>Riesgo / Energía</th><th>Medida de Control y Gestión</th></tr>
-            <tr><td><strong>Energía Térmica</strong></td><td>Turbo/múltiple superan 700°C. Comprobar T° (<40°C) con pirómetro antes de intervenir.</td></tr>
-            <tr><td><strong>Rotacional (Inercia)</strong></td><td>Rotor del turbo sigue girando tras la parada. No abrir ductos inmediatamente.</td></tr>
-            <tr><td><strong>Química (MARPOL I)</strong></td><td>Disponer de trapos con aceites/solventes en recipientes rojos para residuos peligrosos.</td></tr>
-        </table>
-
-        <h2>5. Encuesta de Verificación Previa (Check-list Operativo)</h2>
-        <p style="font-size: 0.85rem; color: #555;"><em>Marque las casillas tocando la pantalla para confirmar la disponibilidad de equipos antes de iniciar la intervención, garantizando el análisis previo de riesgo exigido.</em></p>
-        
-        <div class="checklist-container">
-            <div class="checklist-item">
-                <input type="checkbox" id="chk1">
-                <label for="chk1" class="checklist-text">¿Se aplicó el bloqueo y etiquetado (LOTO) en el tablero de arranque?
-                <span class="checklist-note">Medida base obligatoria para prevenir arranque inesperado.</span></label>
-            </div>
+        <div id="seccion-encuesta">
             
-            <div class="checklist-item">
-                <input type="checkbox" id="chk2">
-                <label for="chk2" class="checklist-text">¿Se comprobó la disipación de energía térmica y rotacional del Turbocompresor?
-                <span class="checklist-note">Uso de pirómetro para confirmar que las caracolas están frías al tacto.</span></label>
+            <div class="loto-box">
+                <h2>🛑 PASO 0: LOTO (Lockout/Tagout) 🛑</h2>
+                <p style="font-weight: bold; font-size: 1.1rem;">AISLAMIENTO DE ENERGÍAS PELIGROSAS</p>
+                <div class="checklist-item" style="border-color: #d9534f; background: #fff;">
+                    <input type="checkbox" id="chk-loto" class="chk-seguridad">
+                    <label for="chk-loto" class="checklist-text">Confirmo que se ha aplicado el bloqueo físico y etiquetado en el tablero de arranque y desconexión de baterías del generador.
+                    <span class="checklist-note">Sin esta confirmación inicial, es imposible proceder al mantenimiento.</span></label>
+                </div>
             </div>
 
-            <div class="checklist-item">
-                <input type="checkbox" id="chk3">
-                <label for="chk3" class="checklist-text">¿Dispone de gafas de sello hermético y mascarilla para polvo?
-                <span class="checklist-note">EPP específico para la proyección de partículas al usar aire a presión en el Intercooler.</span></label>
+            <h2>Fase 1: Ropa e Implementos de Seguridad</h2>
+            <div class="epp-box">
+                <strong>El equipo de 2 personas debe portar:</strong>
+                <ul>
+                    <li><strong>Ropa de trabajo ajustada:</strong> (Overol) para evitar atrapamientos con partes móviles.</li>
+                    <li><strong>Zapatos de seguridad:</strong> Suela antideslizante ante derrames de fluidos.</li>
+                    <li><strong>Gafas herméticas y Mascarilla:</strong> Obligatorias para limpieza neumática.</li>
+                    <li><strong>Guantes térmicos/mecánicos:</strong> Para prevención de quemaduras graves en turbo y colector.</li>
+                </ul>
             </div>
 
-            <div class="checklist-item">
-                <input type="checkbox" id="chk4">
-                <label for="chk4" class="checklist-text">¿Se leyeron las Hojas de Datos de Seguridad (HDS) de los solventes a utilizar?
-                <span class="checklist-note">Conocimiento obligatorio del riesgo químico asociado.</span></label>
+            <h2>Fase 2: Análisis Previo de Riesgos</h2>
+            
+            <div class="checklist-container">
+                <div class="checklist-item">
+                    <input type="checkbox" id="chk2" class="chk-seguridad">
+                    <label for="chk2" class="checklist-text">¿Se comprobó la disipación térmica y detención inercial del Turbocompresor?
+                    <span class="checklist-note">Uso de pirómetro para confirmar que las caracolas están a <40°C y el rotor completamente detenido.</span></label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="chk3" class="chk-seguridad">
+                    <label for="chk3" class="checklist-text">¿Ambos técnicos cuentan con sus EPP completos colocados correctamente?
+                    <span class="checklist-note">Inspección mutua (gafas, guantes, mascarilla, overol).</span></label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="chk4" class="chk-seguridad">
+                    <label for="chk4" class="checklist-text">¿Se revisaron las Hojas de Datos de Seguridad (HDS) de los solventes?
+                    <span class="checklist-note">Lectura de riesgos químicos para el lavado del intercooler.</span></label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="chk5" class="chk-seguridad">
+                    <label for="chk5" class="checklist-text">¿Están dispuestos los depósitos para residuos peligrosos (MARPOL Anexo I)?
+                    <span class="checklist-note">Receptáculos rojos habilitados para trapos con aceites y solventes.</span></label>
+                </div>
             </div>
 
-            <div class="checklist-item">
-                <input type="checkbox" id="chk5">
-                <label for="chk5" class="checklist-text">¿Están disponibles los depósitos para la gestión de residuos según el Anexo I del MARPOL?
-                <span class="checklist-note">Para trapos contaminados con hidrocarburos o químicos.</span></label>
-            </div>
+            <button id="btn-desbloquear" disabled>Validar Seguridad para Iniciar Mantenimiento</button>
+        </div>
+
+        <div id="seccion-mantenimiento">
+            <h2>1. Trabajos de Mantenimiento y Horas-Hombre</h2>
+            <table>
+                <tr><th>Cod.</th><th>Trabajo de Intervención</th><th>Frec.</th><th>HH Total</th></tr>
+                <tr><td>T-01</td><td>Cambio del cartucho del filtro de aire</td><td>400 h</td><td>1.0 HH (2 pers x 0.5h)</td></tr>
+                <tr><td>T-02</td><td>Limpieza exterior aletas del Intercooler</td><td>600 h</td><td>2.0 HH (2 pers x 1.0h)</td></tr>
+                <tr><td>T-03</td><td>Medición holgura axial/radial rotor Turbo</td><td>3000 h</td><td>6.0 HH (2 pers x 3.0h)</td></tr>
+            </table>
+
+            <h2>2. Pauta Técnica por Subconjunto</h2>
+            
+            <h3>A. Filtro de Aire</h3>
+            <img src="https://placehold.co/600x300/eef2f5/004080?text=Imagen+Filtro+de+Aire+Doosan" alt="Filtro de Aire" class="img-componente">
+            <table>
+                <tr>
+                    <th width="25%">Dotación</th>
+                    <td><strong>2 Personas</strong></td>
+                </tr>
+                <tr>
+                    <th>Procedimiento y Límite</th>
+                    <td>Soplar el elemento desde adentro hacia afuera. <strong>Presión máxima del aire: 5 bar (500 kPa).</strong><br><em>Advertencia: Jamás golpear el filtro contra una superficie dura. Si la restricción persiste, reemplazar.</em></td>
+                </tr>
+            </table>
+
+            <h3>B. Intercooler (Enfriador Aire-Aire)</h3>
+            <img src="https://placehold.co/600x300/eef2f5/004080?text=Imagen+Intercooler+Doosan" alt="Intercooler" class="img-componente">
+            <table>
+                <tr>
+                    <th width="25%">Dotación</th>
+                    <td><strong>2 Personas</strong></td>
+                </tr>
+                <tr>
+                    <th>Procedimiento</th>
+                    <td>Limpieza exterior del panal para mantener la transferencia térmica óptima. El aire comprimido entrante a los cilindros debe reducirse a un <strong>máximo de 50°C</strong>.</td>
+                </tr>
+            </table>
+
+            <h3>C. Turbocompresor</h3>
+            <img src="https://placehold.co/600x300/eef2f5/004080?text=Imagen+Turbocompresor+Doosan" alt="Turbocompresor" class="img-componente">
+            <table>
+                <tr>
+                    <th width="25%">Dotación</th>
+                    <td><strong>2 Personas</strong> (Requerido para posicionar base magnética y manipular rotor).</td>
+                </tr>
+                <tr>
+                    <th>Límites de Desgaste</th>
+                    <td>
+                        <ul>
+                            <li><strong>Juego Axial (Rotor):</strong> Límite máximo: <strong>0.20 mm</strong>.</li>
+                            <li><strong>Juego Radial:</strong> Límite máximo: <strong>0.11 mm</strong>.</li>
+                        </ul>
+                    </td>
+                </tr>
+            </table>
+
+            <h3>D. Colector de Admisión</h3>
+            <img src="https://placehold.co/600x300/eef2f5/004080?text=Imagen+Colector+Admision+Doosan" alt="Colector de Admisión" class="img-componente">
+            <table>
+                <tr>
+                    <th width="25%">Dotación</th>
+                    <td><strong>2 Personas</strong></td>
+                </tr>
+                <tr>
+                    <th>Torques de Apriete</th>
+                    <td>
+                        <ul>
+                            <li>Pernos <strong>M10</strong>: Torque de <strong>4.4 kg·m</strong></li>
+                            <li>Pernos <strong>M8</strong>: Torque de <strong>2.2 kg·m</strong></li>
+                        </ul>
+                    </td>
+                </tr>
+            </table>
+
+            <h2>3. Herramientas Específicas</h2>
+            <ul>
+                <li><strong>Turbo:</strong> Reloj comparador milimétrico y base magnética articulada. *(ISO 17025)*.</li>
+                <li><strong>Limpieza:</strong> Pistola de aire comprimido (boquilla 90°, 5 bar), cepillo de cerdas plásticas.</li>
+                <li><strong>Colector:</strong> Llave dinamométrica (Torquímetro) calibrada para torques de 2.2 y 4.4 kg·m.</li>
+            </ul>
         </div>
 
         <div class="footer">
@@ -104,5 +181,43 @@
             Alumno(a): Francisco Teuber Sandrock
         </div>
     </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const checkboxes = document.querySelectorAll('.chk-seguridad');
+            const btnDesbloquear = document.getElementById('btn-desbloquear');
+            const seccionMantenimiento = document.getElementById('seccion-mantenimiento');
+            const seccionEncuesta = document.getElementById('seccion-encuesta');
+
+            function revisarEstado() {
+                let todasMarcadas = true;
+                checkboxes.forEach(function(chk) {
+                    if (!chk.checked) {
+                        todasMarcadas = false;
+                    }
+                });
+                
+                if (todasMarcadas) {
+                    btnDesbloquear.disabled = false;
+                    btnDesbloquear.style.backgroundColor = "#0056b3";
+                    btnDesbloquear.textContent = "✓ INICIAR MANTENIMIENTO TÉCNICO";
+                } else {
+                    btnDesbloquear.disabled = true;
+                    btnDesbloquear.style.backgroundColor = "#ccc";
+                    btnDesbloquear.textContent = "Validar Seguridad para Iniciar Mantenimiento";
+                }
+            }
+
+            checkboxes.forEach(function(chk) {
+                chk.addEventListener('change', revisarEstado);
+            });
+
+            btnDesbloquear.addEventListener('click', function() {
+                seccionMantenimiento.style.display = 'block';
+                seccionEncuesta.style.display = 'none';
+                window.scrollTo(0, 0);
+            });
+        });
+    </script>
 </body>
 </html>

@@ -63,56 +63,47 @@
         <div id="seccion-encuesta">
             
             <div class="loto-box">
-                <h2>1. Protocolo Cero: Bloqueo y Etiquetado (LOTO)</h2>
-                <p style="text-align: center; font-size: 0.95rem; margin-bottom: 15px;">Antes de cualquier intervención en el sistema, ejecute el siguiente procedimiento obligatorio para aislar las energías residuales:</p>
+                <h2>1. Control de Energías Peligrosas (LOTO)</h2>
+                <p style="text-align: center; font-size: 0.95rem; margin-bottom: 15px;">Validación de aislamiento eléctrico y bloqueo antes de la intervención física:</p>
                 <div class="checklist-container">
                     <div class="checklist-item" style="border-color: #d9534f;">
                         <input type="checkbox" id="chk-loto-1" class="chk-seguridad">
-                        <label for="chk-loto-1" class="checklist-text">Paso 1: Apague el controlador APM303 desde el panel frontal.</label>
+                        <label for="chk-loto-1" class="checklist-text">Desenergización de Control: Detención total del equipo desde el módulo APM303 asegurando que no existan arranques programados activos.</label>
                     </div>
                     <div class="checklist-item" style="border-color: #d9534f;">
                         <input type="checkbox" id="chk-loto-2" class="chk-seguridad">
-                        <label for="chk-loto-2" class="checklist-text">Paso 2: Desconecte las baterías de arranque de 24V DC.
-                        <span class="checklist-note">Obligatorio: Desconecte siempre el cable de tierra (negativo) primero para evitar riesgo de cortocircuitos.</span></label>
+                        <label for="chk-loto-2" class="checklist-text">Aislamiento de Fuerza (24V DC): Desconexión del banco de baterías, aislando rigurosamente el borne negativo en primera instancia para suprimir arcos eléctricos.</label>
                     </div>
                     <div class="checklist-item" style="border-color: #d9534f;">
                         <input type="checkbox" id="chk-loto-3" class="chk-seguridad">
-                        <label for="chk-loto-3" class="checklist-text">Paso 3: Instale candado y tarjeta LOTO en el cortacorriente de las baterías.</label>
+                        <label for="chk-loto-3" class="checklist-text">Bloqueo Mecánico: Instalación de candado de seguridad y tarjeta de advertencia (Lockout/Tagout) en el seccionador principal de corriente.</label>
                     </div>
                     <div class="checklist-item" style="border-color: #d9534f;">
                         <input type="checkbox" id="chk-loto-4" class="chk-seguridad">
-                        <label for="chk-loto-4" class="checklist-text">Paso 4: Verifique "Energía Cero" midiendo con multímetro en los terminales del panel APM303 y desconecte circuito de control con destornillador dieléctrico.</label>
+                        <label for="chk-loto-4" class="checklist-text">Comprobación de Tensión Cero: Verificación con multímetro en bornes del panel y desconexión segura del circuito de sensores usando herramientas dieléctricas.</label>
                     </div>
                 </div>
             </div>
 
-            <h2>2. Indumentaria Obligatoria (Laboratorio)</h2>
+            <h2>2. Indumentaria y Restricciones (Laboratorio)</h2>
             <div class="epp-box">
-                <p style="font-size: 0.95rem; margin-top: 0;">Antes de aproximarse al equipo, confirme físicamente que usted y su compañero cumplen con la indumentaria obligatoria para ingresar al Laboratorio de Máquinas:</p>
+                <p style="font-size: 0.95rem; margin-top: 0;">Revisión cruzada entre técnicos de la indumentaria personal exigida:</p>
                 <div class="checklist-container">
                     <div class="checklist-item">
                         <input type="checkbox" id="chk-epp-1" class="chk-seguridad">
-                        <label for="chk-epp-1" class="checklist-text">Ropa de trabajo: Overol o tenida de algodón ajustada, sin mangas sueltas ni desgarros.</label>
+                        <label for="chk-epp-1" class="checklist-text">Vestimenta Técnica: Uso de overol industrial sin partes holgadas y calzado de seguridad con aislación eléctrica.</label>
                     </div>
                     <div class="checklist-item">
                         <input type="checkbox" id="chk-epp-2" class="chk-seguridad">
-                        <label for="chk-epp-2" class="checklist-text">Calzado: Zapatos de seguridad dieléctricos y antideslizantes.</label>
+                        <label for="chk-epp-2" class="checklist-text">Protección Manual Adaptativa: Guantes antiestáticos (ESD) para desconexión de sensores, y guantes mecánicos pesados para desmontaje de caracolas y colector.</label>
                     </div>
                     <div class="checklist-item">
                         <input type="checkbox" id="chk-epp-3" class="chk-seguridad">
-                        <label for="chk-epp-3" class="checklist-text">Manos: Disponibilidad de guantes antiestáticos (ESD) para sensores y térmicos/cuero para el bloque y turbocompresor.</label>
+                        <label for="chk-epp-3" class="checklist-text">Seguridad Craneal y Sensorial: Lentes de policarbonato envolventes, protección auditiva colocada y cabello contenido íntegramente bajo casco.</label>
                     </div>
                     <div class="checklist-item">
                         <input type="checkbox" id="chk-epp-4" class="chk-seguridad">
-                        <label for="chk-epp-4" class="checklist-text">Rostro y Oídos: Gafas de seguridad o pantalla facial clara, y protección auditiva (tapones/fonos).</label>
-                    </div>
-                    <div class="checklist-item">
-                        <input type="checkbox" id="chk-epp-5" class="chk-seguridad">
-                        <label for="chk-epp-5" class="checklist-text">Cero Accesorios Metálicos: Retiro absoluto de anillos, relojes, collares, pulseras y aros.</label>
-                    </div>
-                    <div class="checklist-item">
-                        <input type="checkbox" id="chk-epp-6" class="chk-seguridad">
-                        <label for="chk-epp-6" class="checklist-text">Cabello: Si el cabello es largo, debe estar completamente amarrado y contenido dentro del casco o gorra de seguridad.</label>
+                        <label for="chk-epp-4" class="checklist-text">Restricción de Elementos Extraños: Retiro total de cadenas, anillos, relojes o cualquier accesorio metálico personal.</label>
                     </div>
                 </div>
             </div>
@@ -121,12 +112,11 @@
             <div class="checklist-container">
                 <div class="checklist-item">
                     <input type="checkbox" id="chk-apr-1" class="chk-seguridad">
-                    <label for="chk-apr-1" class="checklist-text">Verificación Térmica: ¿Se comprobó la disipación térmica y detención inercial del Turbocompresor?
-                    <span class="checklist-note">Validar con pirómetro infrarrojo que las caracolas están a <40°C y el eje totalmente detenido.</span></label>
+                    <label for="chk-apr-1" class="checklist-text">Liberación Térmica: Medición con pirómetro certificando que los cuerpos de hierro fundido del turbo se encuentran bajo los 40°C y sin giro residual.</label>
                 </div>
                 <div class="checklist-item">
                     <input type="checkbox" id="chk-apr-2" class="chk-seguridad">
-                    <label for="chk-apr-2" class="checklist-text">Químicos y Residuos: ¿Se revisaron las HDS de los solventes y están dispuestos los depósitos para residuos peligrosos (MARPOL Anexo I)?</label>
+                    <label for="chk-apr-2" class="checklist-text">Gestión Ambiental: Hojas de seguridad (HDS) de desengrasantes leídas y contenedores rojos (norma MARPOL) posicionados para trapos oleosos.</label>
                 </div>
             </div>
 
@@ -188,17 +178,16 @@
             </table>
 
             <div class="tools-box" style="margin-top: 15px;">
-                <h4>Herramientas Genéricas e Instrumentos del Motor</h4>
+                <h4>Herramientas de Taller e Instrumentos Metrológicos</h4>
                 <ul>
-                    <li><strong>Mecánicas:</strong> Juego de llaves combinadas, dados con chicharra, rasqueta plástica/bronce, pistola de aire comprimido a 90 grados (5 bar) y base magnética.</li>
-                    <li><strong>Calibración Vigente (ISO 17025):</strong> Reloj Comparador de Carátula (0.01 mm), Llave Dinamométrica (1 a 10 kg·m), Torquímetro de rango bajo y Pirómetro Infrarrojo.</li>
-                    <li><strong>Metrología:</strong> Galgas de Espesores (Feeler Gauge) para tolerancias del turbocompresor.</li>
+                    <li><strong>Mecánicas:</strong> Juego de llaves métricas combinadas, dados, rasqueta de bronce o polímero, pistola neumática regulada (5 bar) y base magnética pesada.</li>
+                    <li><strong>Calibración Obligatoria (ISO 17025):</strong> Reloj Comparador (0.01 mm), Llave Dinamométrica (1-10 kg·m), Torquímetro de precisión y Pirómetro Óptico.</li>
+                    <li><strong>Ajuste Fino:</strong> Set de Galgas de Espesores para medición de luz en rodetes.</li>
                 </ul>
-                <h4 style="margin-top: 15px; color: #d9534f;">Instrumentación y Electrónica (Sensores del Colector)</h4>
+                <h4 style="margin-top: 15px; color: #d9534f;">Equipamiento Electrónico (Sensores de Admisión)</h4>
                 <ul>
-                    <li><strong>Instrumentos de Diagnóstico:</strong> Multímetro digital True-RMS y calibrador de lazos de corriente (4-20mA).</li>
-                    <li><strong>Herramientas Aisladas:</strong> Destornilladores dieléctricos (1000V) para desconexión en borneras K1 y K6 del APM303.</li>
-                    <li><strong>Protección Electrónica:</strong> Pulsera o guantes antiestáticos (ESD) para evitar daños en los sensores de presión/temperatura de aire.</li>
+                    <li><strong>Medición:</strong> Multímetro True-RMS y calibrador de lazos de proceso (4-20mA).</li>
+                    <li><strong>Aislación:</strong> Set de destornilladores dieléctricos normados a 1000V.</li>
                 </ul>
             </div>
 
@@ -263,7 +252,7 @@
                             <li><strong>Medición de Juego Axial y Radial:</strong> Instalar base magnética y acoplar el reloj comparador de carátula al centro del eje del rotor. 
                                 <br>- Desplazamiento axial límite: <strong>0.20 mm</strong>. 
                                 <br>- Desplazamiento radial límite: <strong>0.11 mm</strong>.</li>
-                            <li><strong>Verificación de holgura de álabes:</strong> Utilizar las <strong>Galgas de Espesores (Feeler Gauge)</strong> para comprobar la luz libre entre los álabes del rodete y la pared interior de la caracola. Si las galgas indican roce o desviación excéntrica excesiva, o si el reloj comparador supera los límites, el turbocompresor debe ser reemplazado.</li>
+                            <li><strong>Verificación de holgura de álabes:</strong> Utilizar las <strong>Galgas de Espesores</strong> para comprobar la luz libre entre los álabes del rodete y la pared interior de la caracola. Si las galgas indican roce excéntrico o si el comparador supera los límites, el turbocompresor debe ser reemplazado.</li>
                         </ol>
                     </td>
                 </tr>
@@ -281,15 +270,15 @@
                     <td>
                         <ol class="pasos-mantenimiento">
                             <li><strong>Desmontaje secuencial:</strong> Aflojar los pernos de fijación siguiendo un <strong>orden inverso al apriete</strong> (desde los extremos hacia el centro).</li>
-                            <li><strong>Limpieza de superficies:</strong> Retirar restos de empaquetaduras (gaskets) antiguas de la culata utilizando <strong>rasquetas de plástico o bronce</strong>.</li>
+                            <li><strong>Limpieza de superficies:</strong> Retirar restos de empaquetaduras antiguas de la culata utilizando <strong>rasquetas de plástico o bronce</strong>.</li>
                             <li><strong>Instalación y apriete del colector:</strong> Utilizando llave dinamométrica estándar, aplicar el torque final siguiendo un <strong>patrón cruzado desde el centro hacia los extremos</strong>:
                                 <ul style="margin-top: 5px; background: #eef2f5; padding: 10px 10px 10px 30px; border-radius: 4px;">
                                     <li>Pernos métricos <strong>M10</strong>: Torque de <strong>4.4 kg·m</strong>.</li>
                                     <li>Pernos métricos <strong>M8</strong>: Torque de <strong>2.2 kg·m</strong>.</li>
                                 </ul>
                             </li>
-                            <li><strong>Montaje de Sensores (Instrumentación):</strong> Utilizando <strong>guantes antiestáticos (ESD)</strong>, proceda a instalar los sensores de presión (Boost) y temperatura del aire de carga. Utilice el <strong>torquímetro de rango bajo</strong> para aplicar un apriete exacto, de modo que la arandela de cobre asiente perfectamente sin fisurar la rosca del block.</li>
-                            <li><strong>Comprobación de Señal:</strong> Antes de energizar completamente el panel, verifique la continuidad y la correcta emisión de señal de los sensores montados utilizando el <strong>multímetro True-RMS y el calibrador de lazos de corriente (4-20mA)</strong>.</li>
+                            <li><strong>Montaje de Sensores (Instrumentación):</strong> Utilizando <strong>guantes antiestáticos (ESD)</strong>, proceda a instalar los sensores de presión (Boost) y temperatura del aire de carga. Utilice el <strong>torquímetro de precisión</strong> para aplicar un apriete exacto, de modo que la arandela de cobre asiente perfectamente sin fisurar la rosca del block.</li>
+                            <li><strong>Comprobación de Señal:</strong> Antes de energizar completamente el panel, verifique la continuidad de los sensores montados utilizando el <strong>multímetro True-RMS y el calibrador de lazos de corriente (4-20mA)</strong>.</li>
                         </ol>
                     </td>
                 </tr>
@@ -329,7 +318,7 @@
         </div>
 
         <div id="mensaje-exito">
-            Mantenimiento certificado con éxito. El sistema de Admisión y Sobrealimentación del Doosan P126TI-II se encuentra operativo y seguro para retirar el candado LOTO, conectar baterías y energizar el panel APM303.
+            Mantenimiento certificado con éxito. El sistema de Admisión y Sobrealimentación del Doosan P126TI-II se encuentra operativo y seguro para retirar el candado LOTO, conectar baterías y energizar el panel de control.
         </div>
 
         <div class="footer">

@@ -65,7 +65,7 @@
         <div id="seccion-encuesta">
             
             <div class="loto-box">
-                <h2>🛑 PASO 0: LOTO (Lockout/Tagout) 🛑</h2>
+                <h2>PASO 0: LOTO (Lockout/Tagout)</h2>
                 <p style="font-weight: bold; font-size: 1.1rem;">AISLAMIENTO DE ENERGÍAS PELIGROSAS</p>
                 <div class="checklist-item" style="border-color: #d9534f; background: #fff;">
                     <input type="checkbox" id="chk-loto" class="chk-seguridad">
@@ -134,28 +134,28 @@
                 </tr>
                 <tr>
                     <td><strong>Turbocompresor</strong></td>
-                    <td><span class="badge-critico">⚠️ COMPONENTE CRÍTICO (Alta Criticidad / S=9)</span></td>
+                    <td><span class="badge-critico">COMPONENTE CRÍTICO (Alta Criticidad / S=9)</span></td>
                     <td>Desgaste excesivo de cojinetes y superación de holgura axial/radial límite.</td>
                     <td>S=9, O=3, D=4 <br><strong>NPR = 108</strong></td>
                     <td>Mantenimiento condicional estricto cada 3.000 h con medición metrológica (reloj comparador).</td>
                 </tr>
                 <tr>
                     <td><strong>Filtro de Aire</strong></td>
-                    <td><span class="badge-nocritico">ℹ️ COMPONENTE NO CRÍTICO (Criticidad Media)</span></td>
+                    <td><span class="badge-nocritico">COMPONENTE NO CRÍTICO (Criticidad Media)</span></td>
                     <td>Saturación prematura del cartucho o rotura del medio filtrante de papel.</td>
                     <td>S=7, O=5, D=2 <br><strong>NPR = 70</strong></td>
                     <td>Mantenimiento preventivo periódico (limpieza y sopleteado cada 200/400 h).</td>
                 </tr>
                 <tr>
                     <td><strong>Intercooler</strong></td>
-                    <td><span class="badge-nocritico">ℹ️ COMPONENTE NO CRÍTICO (Criticidad Media)</span></td>
+                    <td><span class="badge-nocritico">COMPONENTE NO CRÍTICO (Criticidad Media)</span></td>
                     <td>Obstrucción externa de aletas por suciedad o filtración interna de aceite.</td>
                     <td>S=6, O=4, D=3 <br><strong>NPR = 72</strong></td>
                     <td>Mantenimiento preventivo e inspección de ductos cada 600 h.</td>
                 </tr>
                 <tr>
                     <td><strong>Colector de Admisión</strong></td>
-                    <td><span class="badge-nocritico">ℹ️ COMPONENTE NO CRÍTICO (Criticidad Media)</span></td>
+                    <td><span class="badge-nocritico">COMPONENTE NO CRÍTICO (Criticidad Media)</span></td>
                     <td>Fuga de presión por envejecimiento o alabeo de empaquetaduras (gaskets).</td>
                     <td>S=6, O=3, D=3 <br><strong>NPR = 54</strong></td>
                     <td>Sustitución por condición de juntas y control con torque cruzado.</td>
@@ -173,12 +173,12 @@
             </table>
 
             <div class="tools-box" style="margin-top: 15px;">
-                <h4>⚙️ Herramientas Genéricas y Específicas</h4>
+                <h4>Herramientas Genéricas y Específicas</h4>
                 <ul>
                     <li><strong>Genéricas:</strong> Juego de llaves combinadas, juego de dados con chicharra, destornilladores, rasqueta plástica/bronce, linterna de inspección, paños industriales sin pelusa.</li>
                     <li><strong>Específicas:</strong> Pistola de aire comprimido con boquilla doblada a 90° (presión regulada a 5 bar), base magnética articulada pesada.</li>
                 </ul>
-                <h4 style="margin-top: 15px; color: #d9534f;">📋 Instrumentos sujetos a Calibración Vigente (ISO 17025)</h4>
+                <h4 style="margin-top: 15px; color: #d9534f;">Instrumentos sujetos a Calibración Vigente (ISO 17025)</h4>
                 <ul>
                     <li><strong>Reloj Comparador de Carátula:</strong> Rango milimétrico con precisión de 0.01 mm.</li>
                     <li><strong>Llave Dinamométrica (Torquímetro):</strong> Rango operativo 1 a 10 kg·m con certificado vigente.</li>
@@ -286,7 +286,7 @@
 
         <!-- FASE DE CIERRE Y VERIFICACIÓN POST-MANTENIMIENTO -->
         <div class="cierre-box">
-            <h2>📋 Fase 4: Encuesta de Cierre y Verificación Post-Mantenimiento</h2>
+            <h2>Fase 4: Encuesta de Cierre y Verificación Post-Mantenimiento</h2>
             <p style="text-align: center; font-size: 0.95rem; margin-bottom: 15px;">Validación obligatoria antes de retirar bloqueos y energizar el equipo:</p>
             
             <div class="checklist-container">
@@ -316,7 +316,7 @@
         </div>
 
         <div id="mensaje-exito">
-            🎉 ¡Mantenimiento certificado con éxito! El sistema de Admisión y Sobrealimentación del Doosan P126TI-II se encuentra operativo y seguro para liberar el bloqueo LOTO.
+            Mantenimiento certificado con éxito. El sistema de Admisión y Sobrealimentación del Doosan P126TI-II se encuentra operativo y seguro para liberar el bloqueo LOTO.
         </div>
 
         <div class="footer">
@@ -345,7 +345,7 @@
                 if (todasMarcadas) {
                     btnDesbloquear.disabled = false;
                     btnDesbloquear.style.backgroundColor = "#0056b3";
-                    btnDesbloquear.textContent = "✓ INICIAR MANTENIMIENTO TÉCNICO";
+                    btnDesbloquear.textContent = "INICIAR MANTENIMIENTO TÉCNICO";
                 } else {
                     btnDesbloquear.disabled = true;
                     btnDesbloquear.style.backgroundColor = "#ccc";
@@ -363,7 +363,7 @@
                     btnFinalizar.disabled = false;
                     btnFinalizar.style.backgroundColor = "#28a745";
                     btnFinalizar.style.cursor = "pointer";
-                    btnFinalizar.textContent = "✓ CERTIFICAR CIERRE EXITOSO DE MANTENCIÓN";
+                    btnFinalizar.textContent = "CERTIFICAR CIERRE EXITOSO DE MANTENCIÓN";
                 } else {
                     btnFinalizar.disabled = true;
                     btnFinalizar.style.backgroundColor = "#6c757d";

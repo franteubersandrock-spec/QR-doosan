@@ -14,12 +14,10 @@
         th, td { border: 1px solid #ddd; padding: 8px; text-align: left; vertical-align: top; }
         th { background-color: #f0f8ff; color: #004080; }
         
-        .epp-box { background: #fff3cd; border-left: 5px solid #ffc107; padding: 15px; margin-bottom: 20px; border-radius: 4px; }
-        .epp-box ul { margin: 10px 0 0 0; padding-left: 20px; }
-        .epp-box li { margin-bottom: 5px; }
-
-        .loto-box { background: #fdf2f2; border: 2px solid #d9534f; padding: 20px; text-align: center; border-radius: 6px; margin-bottom: 20px; }
-        .loto-box h2 { background: transparent; color: #d9534f; font-size: 1.5rem; margin: 0 0 10px 0; padding: 0; }
+        .epp-box { background: #eef2f7; border-left: 5px solid #004080; padding: 15px; margin-bottom: 20px; border-radius: 4px; }
+        
+        .loto-box { background: #fdf2f2; border: 2px solid #d9534f; padding: 20px; border-radius: 6px; margin-bottom: 20px; }
+        .loto-box h2 { background: transparent; color: #d9534f; font-size: 1.5rem; margin: 0 0 10px 0; padding: 0; text-align: center; }
 
         .system-def-box { background: #eef2f7; border-left: 5px solid #004080; padding: 15px; margin-bottom: 20px; border-radius: 4px; font-size: 0.9rem; }
         .system-def-box ul { margin: 8px 0 0 0; padding-left: 20px; }
@@ -28,7 +26,7 @@
         .cierre-box h2 { background: transparent; color: #2e7d32; font-size: 1.3rem; margin: 0 0 15px 0; padding: 0; text-align: center; }
 
         .checklist-container { margin-top: 15px; }
-        .checklist-item { display: flex; align-items: flex-start; margin-bottom: 10px; padding: 12px; background: #fff; border: 1px solid #cce5ff; border-radius: 6px; transition: background 0.3s; }
+        .checklist-item { display: flex; align-items: flex-start; margin-bottom: 10px; padding: 12px; background: #fff; border: 1px solid #ccc; border-radius: 6px; transition: background 0.3s; }
         .checklist-item:hover { background: #f0f8ff; }
         .checklist-item input[type="checkbox"] { margin-right: 15px; margin-top: 4px; transform: scale(1.5); cursor: pointer; }
         .checklist-text { flex: 1; font-size: 0.95rem; cursor: pointer; font-weight: 500; }
@@ -60,53 +58,75 @@
 </head>
 <body>
     <div class="container">
-        <h1>Panel de Gestión QR: Admisión y Sobrealimentación<br><small style="color: #666; font-size: 1rem;">Grupo Electrógeno Doosan P126TI-II</small></h1>
+        <h1>Panel de Gestión QR: Admisión y Sobrealimentación<br><small style="color: #666; font-size: 1rem;">Grupo Electrógeno Doosan P126TI-II / SDMO</small></h1>
 
         <div id="seccion-encuesta">
             
             <div class="loto-box">
-                <h2>PASO 0: LOTO (Lockout/Tagout)</h2>
-                <p style="font-weight: bold; font-size: 1.1rem;">AISLAMIENTO DE ENERGÍAS PELIGROSAS</p>
-                <div class="checklist-item" style="border-color: #d9534f; background: #fff;">
-                    <input type="checkbox" id="chk-loto" class="chk-seguridad">
-                    <label for="chk-loto" class="checklist-text">Confirmo que se ha aplicado el bloqueo físico y etiquetado en el tablero de arranque y desconexión de baterías del generador.
-                    <span class="checklist-note">Sin esta confirmación inicial, es absolutamente prohibido proceder al mantenimiento.</span></label>
+                <h2>1. Protocolo Cero: Bloqueo y Etiquetado (LOTO)</h2>
+                <p style="text-align: center; font-size: 0.95rem; margin-bottom: 15px;">Antes de cualquier intervención en el sistema, ejecute el siguiente procedimiento obligatorio para aislar las energías residuales:</p>
+                <div class="checklist-container">
+                    <div class="checklist-item" style="border-color: #d9534f;">
+                        <input type="checkbox" id="chk-loto-1" class="chk-seguridad">
+                        <label for="chk-loto-1" class="checklist-text">Paso 1: Apague el controlador APM303 desde el panel frontal.</label>
+                    </div>
+                    <div class="checklist-item" style="border-color: #d9534f;">
+                        <input type="checkbox" id="chk-loto-2" class="chk-seguridad">
+                        <label for="chk-loto-2" class="checklist-text">Paso 2: Desconecte las baterías de arranque de 24V DC.
+                        <span class="checklist-note">Obligatorio: Desconecte siempre el cable de tierra (negativo) primero para evitar riesgo de cortocircuitos.</span></label>
+                    </div>
+                    <div class="checklist-item" style="border-color: #d9534f;">
+                        <input type="checkbox" id="chk-loto-3" class="chk-seguridad">
+                        <label for="chk-loto-3" class="checklist-text">Paso 3: Instale candado y tarjeta LOTO en el cortacorriente de las baterías.</label>
+                    </div>
+                    <div class="checklist-item" style="border-color: #d9534f;">
+                        <input type="checkbox" id="chk-loto-4" class="chk-seguridad">
+                        <label for="chk-loto-4" class="checklist-text">Paso 4: Verifique "Energía Cero" midiendo con multímetro en los terminales del panel APM303 y desconecte circuito de control con destornillador dieléctrico.</label>
+                    </div>
                 </div>
             </div>
 
-            <h2>Fase 1: Ropa e Implementos de Seguridad</h2>
+            <h2>2. Indumentaria Obligatoria (Laboratorio)</h2>
             <div class="epp-box">
-                <strong>El equipo técnico (dotación de 2 personas) debe portar:</strong>
-                <ul>
-                    <li><strong>Ropa de trabajo ajustada:</strong> (Overol) para evitar enganches o atrapamientos con poleas y partes rotativas expuestas.</li>
-                    <li><strong>Calzado de seguridad:</strong> Suela resistente a hidrocarburos y antideslizante ante posibles derrames de fluidos.</li>
-                    <li><strong>Gafas de sello hermético y Mascarilla particulada:</strong> Obligatorias durante la aplicación de aire comprimido en limpieza.</li>
-                    <li><strong>Guantes de nitrilo y mecánicos/térmicos:</strong> Prevención de dermatitis por químicos y quemaduras por superficies a alta temperatura.</li>
-                </ul>
+                <p style="font-size: 0.95rem; margin-top: 0;">Antes de aproximarse al equipo, confirme físicamente que usted y su compañero cumplen con la indumentaria obligatoria para ingresar al Laboratorio de Máquinas:</p>
+                <div class="checklist-container">
+                    <div class="checklist-item">
+                        <input type="checkbox" id="chk-epp-1" class="chk-seguridad">
+                        <label for="chk-epp-1" class="checklist-text">Ropa de trabajo: Overol o tenida de algodón ajustada, sin mangas sueltas ni desgarros.</label>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="chk-epp-2" class="chk-seguridad">
+                        <label for="chk-epp-2" class="checklist-text">Calzado: Zapatos de seguridad dieléctricos y antideslizantes.</label>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="chk-epp-3" class="chk-seguridad">
+                        <label for="chk-epp-3" class="checklist-text">Manos: Disponibilidad de guantes antiestáticos (ESD) para sensores y térmicos/cuero para el bloque y turbocompresor.</label>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="chk-epp-4" class="chk-seguridad">
+                        <label for="chk-epp-4" class="checklist-text">Rostro y Oídos: Gafas de seguridad o pantalla facial clara, y protección auditiva (tapones/fonos).</label>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="chk-epp-5" class="chk-seguridad">
+                        <label for="chk-epp-5" class="checklist-text">Cero Accesorios Metálicos: Retiro absoluto de anillos, relojes, collares, pulseras y aros.</label>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="chk-epp-6" class="chk-seguridad">
+                        <label for="chk-epp-6" class="checklist-text">Cabello: Si el cabello es largo, debe estar completamente amarrado y contenido dentro del casco o gorra de seguridad.</label>
+                    </div>
+                </div>
             </div>
 
-            <h2>Fase 2: Análisis Previo de Riesgos (APR)</h2>
-            
+            <h2>3. Análisis Previo de Riesgos (APR)</h2>
             <div class="checklist-container">
                 <div class="checklist-item">
-                    <input type="checkbox" id="chk2" class="chk-seguridad">
-                    <label for="chk2" class="checklist-text">¿Se comprobó la disipación térmica y detención inercial del Turbocompresor?
+                    <input type="checkbox" id="chk-apr-1" class="chk-seguridad">
+                    <label for="chk-apr-1" class="checklist-text">Verificación Térmica: ¿Se comprobó la disipación térmica y detención inercial del Turbocompresor?
                     <span class="checklist-note">Validar con pirómetro infrarrojo que las caracolas están a <40°C y el eje totalmente detenido.</span></label>
                 </div>
                 <div class="checklist-item">
-                    <input type="checkbox" id="chk3" class="chk-seguridad">
-                    <label for="chk3" class="checklist-text">¿Ambos técnicos cuentan con sus EPP completos colocados correctamente?
-                    <span class="checklist-note">Inspección cruzada de gafas, guantes, mascarilla y overol cerrado.</span></label>
-                </div>
-                <div class="checklist-item">
-                    <input type="checkbox" id="chk4" class="chk-seguridad">
-                    <label for="chk4" class="checklist-text">¿Se revisaron las Hojas de Datos de Seguridad (HDS) de los solventes?
-                    <span class="checklist-note">Protocolo obligatorio ante exposición a vapores tóxicos o contacto dérmico en limpieza.</span></label>
-                </div>
-                <div class="checklist-item">
-                    <input type="checkbox" id="chk5" class="chk-seguridad">
-                    <label for="chk5" class="checklist-text">¿Están dispuestos los depósitos para residuos peligrosos (MARPOL Anexo I)?
-                    <span class="checklist-note">Receptáculos estancos (rojos) habilitados para trapos con aceites y solventes inflamables.</span></label>
+                    <input type="checkbox" id="chk-apr-2" class="chk-seguridad">
+                    <label for="chk-apr-2" class="checklist-text">Químicos y Residuos: ¿Se revisaron las HDS de los solventes y están dispuestos los depósitos para residuos peligrosos (MARPOL Anexo I)?</label>
                 </div>
             </div>
 
@@ -115,7 +135,7 @@
 
         <div id="seccion-mantenimiento">
             
-            <h2>1. Definición del Sistema y Clasificación FMECA (Críticos vs. No Críticos)</h2>
+            <h2>1. Definición del Sistema y Clasificación FMECA</h2>
             <div class="system-def-box">
                 <strong>Definición del Sistema:</strong> Subsistema de Admisión y Sobrealimentación del motor Doosan P126TI-II. 
                 <ul>
@@ -128,41 +148,36 @@
                 <tr>
                     <th>Componente / Ítem</th>
                     <th>Clasificación FMECA</th>
-                    <th>Modo de Falla Potencial Principal</th>
                     <th>S | O | D (NPR)</th>
                     <th>Política de Mantenimiento Derivada</th>
                 </tr>
                 <tr>
                     <td><strong>Turbocompresor</strong></td>
-                    <td><span class="badge-critico">COMPONENTE CRÍTICO (Alta Criticidad / S=9)</span></td>
-                    <td>Desgaste excesivo de cojinetes y superación de holgura axial/radial límite.</td>
+                    <td><span class="badge-critico">COMPONENTE CRÍTICO (Regla S=9)</span></td>
                     <td>S=9, O=3, D=4 <br><strong>NPR = 108</strong></td>
-                    <td>Mantenimiento condicional estricto cada 3.000 h con medición metrológica (reloj comparador).</td>
+                    <td>Mantenimiento condicional estricto cada 3.000 h con medición metrológica (reloj comparador y galgas).</td>
                 </tr>
                 <tr>
                     <td><strong>Filtro de Aire</strong></td>
-                    <td><span class="badge-nocritico">COMPONENTE NO CRÍTICO (Criticidad Media)</span></td>
-                    <td>Saturación prematura del cartucho o rotura del medio filtrante de papel.</td>
+                    <td><span class="badge-nocritico">COMPONENTE NO CRÍTICO (Media)</span></td>
                     <td>S=7, O=5, D=2 <br><strong>NPR = 70</strong></td>
                     <td>Mantenimiento preventivo periódico (limpieza y sopleteado cada 200/400 h).</td>
                 </tr>
                 <tr>
                     <td><strong>Intercooler</strong></td>
-                    <td><span class="badge-nocritico">COMPONENTE NO CRÍTICO (Criticidad Media)</span></td>
-                    <td>Obstrucción externa de aletas por suciedad o filtración interna de aceite.</td>
+                    <td><span class="badge-nocritico">COMPONENTE NO CRÍTICO (Media)</span></td>
                     <td>S=6, O=4, D=3 <br><strong>NPR = 72</strong></td>
                     <td>Mantenimiento preventivo e inspección de ductos cada 600 h.</td>
                 </tr>
                 <tr>
                     <td><strong>Colector de Admisión</strong></td>
-                    <td><span class="badge-nocritico">COMPONENTE NO CRÍTICO (Criticidad Media)</span></td>
-                    <td>Fuga de presión por envejecimiento o alabeo de empaquetaduras (gaskets).</td>
+                    <td><span class="badge-nocritico">COMPONENTE NO CRÍTICO (Media)</span></td>
                     <td>S=6, O=3, D=3 <br><strong>NPR = 54</strong></td>
                     <td>Sustitución por condición de juntas y control con torque cruzado.</td>
                 </tr>
             </table>
 
-            <h2>2. Resumen de HH y Herramientas Requeridas</h2>
+            <h2>2. Resumen de HH y Herramientas</h2>
             
             <table>
                 <tr><th>Cod.</th><th>Trabajo de Intervención</th><th>Frec.</th><th>HH Total</th></tr>
@@ -173,16 +188,17 @@
             </table>
 
             <div class="tools-box" style="margin-top: 15px;">
-                <h4>Herramientas Genéricas y Específicas</h4>
+                <h4>Herramientas Genéricas e Instrumentos del Motor</h4>
                 <ul>
-                    <li><strong>Genéricas:</strong> Juego de llaves combinadas, juego de dados con chicharra, destornilladores, rasqueta plástica/bronce, linterna de inspección, paños industriales sin pelusa.</li>
-                    <li><strong>Específicas:</strong> Pistola de aire comprimido con boquilla doblada a 90° (presión regulada a 5 bar), base magnética articulada pesada.</li>
+                    <li><strong>Mecánicas:</strong> Juego de llaves combinadas, dados con chicharra, rasqueta plástica/bronce, pistola de aire comprimido a 90 grados (5 bar) y base magnética.</li>
+                    <li><strong>Calibración Vigente (ISO 17025):</strong> Reloj Comparador de Carátula (0.01 mm), Llave Dinamométrica (1 a 10 kg·m), Torquímetro de rango bajo y Pirómetro Infrarrojo.</li>
+                    <li><strong>Metrología:</strong> Galgas de Espesores (Feeler Gauge) para tolerancias del turbocompresor.</li>
                 </ul>
-                <h4 style="margin-top: 15px; color: #d9534f;">Instrumentos sujetos a Calibración Vigente (ISO 17025)</h4>
+                <h4 style="margin-top: 15px; color: #d9534f;">Instrumentación y Electrónica (Sensores del Colector)</h4>
                 <ul>
-                    <li><strong>Reloj Comparador de Carátula:</strong> Rango milimétrico con precisión de 0.01 mm.</li>
-                    <li><strong>Llave Dinamométrica (Torquímetro):</strong> Rango operativo 1 a 10 kg·m con certificado vigente.</li>
-                    <li><strong>Pirómetro Infrarrojo:</strong> Para verificación térmica previa de superficies calientes.</li>
+                    <li><strong>Instrumentos de Diagnóstico:</strong> Multímetro digital True-RMS y calibrador de lazos de corriente (4-20mA).</li>
+                    <li><strong>Herramientas Aisladas:</strong> Destornilladores dieléctricos (1000V) para desconexión en borneras K1 y K6 del APM303.</li>
+                    <li><strong>Protección Electrónica:</strong> Pulsera o guantes antiestáticos (ESD) para evitar daños en los sensores de presión/temperatura de aire.</li>
                 </ul>
             </div>
 
@@ -202,10 +218,9 @@
                             <li><strong>Verificación preliminar:</strong> Revisar el indicador de restricción de aire en el panel para constatar si existe saturación antes de abrir el conjunto.</li>
                             <li><strong>Desmontaje del elemento:</strong> Aflojar la tuerca de mariposa superior y extraer con suma delicadeza el cartucho filtrante de papel para evitar que residuos acumulados caigan hacia la tubería de admisión.</li>
                             <li><strong>Mantenimiento de la taza:</strong> Vaciar completamente la taza de recolección de polvo (dust bowl) y comprobar el buen estado de la válvula de descarga de goma inferior.</li>
-                            <li><strong>Limpieza de carcasa:</strong> Limpiar el interior de la carcasa metálica utilizando <strong>exclusivamente un paño húmedo</strong>. Está estrictamente prohibido aplicar aire comprimido dentro de la carcasa instalada, ya que introduciría polvo directamente a las cámaras de combustión.</li>
-                            <li><strong>Sopleteado del cartucho:</strong> Si las horas de operación ameritan mantención, introducir la pistola de aire con extensión a 90° al interior del cartucho. Soplar desde adentro hacia afuera moviendo la boquilla verticalmente de forma uniforme. <strong>Presión máxima permitida: 5 bar (500 kPa).</strong> Jamás golpear el filtro contra superficies duras.</li>
-                            <li><strong>Inspección interna:</strong> El Técnico 2 introduce una linterna encendida al interior del cartucho mientras el Técnico 1 revisa el exterior. Si se detectan perforaciones, fisuras en el papel o sellos de goma deformados, el elemento debe ser <strong>desechado y reemplazado de inmediato</strong> (máximo 5 limpiezas o 4.000 horas).</li>
-                            <li><strong>Montaje final:</strong> Instalar el cartucho asegurando el correcto acoplamiento de las juntas y fijar firmemente el sistema para evitar ingreso de aire no filtrado.</li>
+                            <li><strong>Limpieza de carcasa:</strong> Limpiar el interior de la carcasa metálica utilizando <strong>exclusivamente un paño húmedo</strong>. Está estrictamente prohibido aplicar aire comprimido dentro de la carcasa instalada.</li>
+                            <li><strong>Sopleteado del cartucho:</strong> Introducir la pistola de aire con extensión a 90 grados al interior del cartucho. Soplar desde adentro hacia afuera moviendo la boquilla verticalmente. <strong>Presión máxima permitida: 5 bar.</strong></li>
+                            <li><strong>Inspección interna:</strong> Inspección a trasluz con linterna. Si se detectan perforaciones, fisuras o sellos deformados, desechar y reemplazar el elemento de inmediato.</li>
                         </ol>
                     </td>
                 </tr>
@@ -222,12 +237,11 @@
                     <th>Procedimiento Paso a Paso</th>
                     <td>
                         <ol class="pasos-mantenimiento">
-                            <li><strong>Desconexión de ductos:</strong> Aflojar las abrazaderas de alta resistencia y retirar las mangueras de silicona flexibles que conectan el turbocompresor con el intercooler y la admisión.</li>
-                            <li><strong>Punto crítico de diagnóstico:</strong> Inspeccionar el interior de los ductos y la entrada del intercooler en busca de acumulaciones excesivas de aceite lubricante. La presencia masiva de aceite denota desgaste avanzado o falla en los sellos dinámicos del turbocompresor.</li>
-                            <li><strong>Inspección de mangueras:</strong> Examinar minuciosamente las mangas flexibles evaluando fatiga térmica, cristalización, grietas o deformaciones por presión. Reemplazar si presentan anomalías.</li>
-                            <li><strong>Limpieza externa de aletas:</strong> Aplicar un desengrasante químico de carácter no ácido sobre el panel de enfriamiento aire-aire. Dejar actuar el producto para desprender la película de grasa y polvo adherida, y frotar suavemente utilizando <strong>únicamente un cepillo de cerdas plásticas</strong> (las herramientas metálicas doblan o cortan irreparablemente las delgadas aletas de aluminio).</li>
-                            <li><strong>Enjuague y sopleteado:</strong> Remover los residuos con agua a baja presión o aire comprimido regulado, enderezando con delicadeza cualquier aleta deflectora deformada mediante un peine especial.</li>
-                            <li><strong>Verificación térmica:</strong> Al rearmar y poner en marcha, comprobar que la temperatura del aire de carga enfriado que se dirige al colector cumpla con el parámetro de diseño: <strong>máximo 50°C</strong>.</li>
+                            <li><strong>Desconexión de ductos:</strong> Aflojar las abrazaderas y retirar las mangueras de silicona flexibles que conectan el turbocompresor con el intercooler y la admisión.</li>
+                            <li><strong>Punto crítico de diagnóstico:</strong> Inspeccionar el interior de los ductos. La presencia masiva de aceite denota desgaste avanzado en los sellos dinámicos del turbocompresor.</li>
+                            <li><strong>Inspección de mangueras:</strong> Examinar minuciosamente las mangas evaluando fatiga térmica, cristalización o grietas.</li>
+                            <li><strong>Limpieza externa de aletas:</strong> Aplicar desengrasante químico no ácido sobre el panel. Frotar suavemente utilizando <strong>únicamente un cepillo de cerdas plásticas</strong> (para no doblar el aluminio).</li>
+                            <li><strong>Enjuague y sopleteado:</strong> Remover residuos con agua a baja presión o aire comprimido regulado, enderezando aletas con un peine especial.</li>
                         </ol>
                     </td>
                 </tr>
@@ -238,45 +252,44 @@
             <table>
                 <tr>
                     <th width="25%">Dotación Asignada</th>
-                    <td><strong>2 Personas</strong> (Técnico 1: Operación de instrumentos de precisión | Técnico 2: Manipulación y tracción del eje)</td>
+                    <td><strong>2 Personas</strong> (Técnico 1: Operación de instrumentos de precisión | Técnico 2: Manipulación del eje)</td>
                 </tr>
                 <tr>
                     <th>Procedimiento Paso a Paso y Tolerancias</th>
                     <td>
                         <ol class="pasos-mantenimiento">
-                            <li><strong>Preparación y seguridad:</strong> Confirmar el enfriamiento completo del bloque central (CHRA) y limpiar externamente la zona antes de desacoplar los conductos de escape, admisión y las líneas metálicas de lubricación.</li>
-                            <li><strong>Protección de orificios:</strong> Al retirar las líneas de alimentación y retorno de aceite, tapar inmediatamente los puertos del turbo con tapones limpios para impedir la entrada de partículas extrañas al sistema de cojinetes.</li>
-                            <li><strong>Prueba de giro manual:</strong> Accionar el rodete del compresor con los dedos; este debe girar con absoluta suavidad, de manera continua, sin fricciones parásitas, trabas ni ruidos de roce metálico contra la carcasa.</li>
-                            <li><strong>Montaje del equipo de medición:</strong> Instalar firmemente una base magnética articulada sobre una superficie plana y limpia de la carcasa de la turbina. Acoplar un reloj comparador de carátula milimétrica de modo que el palpador toque perfectamente alineado el centro del eje del rotor.</li>
-                            <li><strong>Medición de Juego Axial:</strong> El Técnico 2 desplaza el eje del rotor de forma longitudinal (hacia adentro y hacia afuera de la carcasa). El Técnico 1 observa la desviación máxima en el reloj comparador. <br><span class="critical">Límite máximo de desgaste permitido: 0.20 mm.</span></li>
-                            <li><strong>Medición de Juego Radial:</strong> Reubicar el palpador del reloj comparador apoyándolo perpendicularmente sobre el vástago o tuerca del impulsor. El Técnico 2 aplica fuerza vertical simultánea hacia arriba y hacia abajo sobre el eje. <br><span class="critical">Límite máximo de desgaste permitido: 0.11 mm.</span></li>
-                            <li><strong>Criterio de acción:</strong> Si los valores medidos superan las holguras establecidas por el fabricante, el turbocompresor debe ser desmontado para su reacondicionamiento en taller especializado o reemplazo integral.</li>
+                            <li><strong>Protección de orificios:</strong> Al retirar las líneas de aceite, tapar inmediatamente los puertos con tapones limpios para impedir la entrada de partículas.</li>
+                            <li><strong>Prueba de giro manual:</strong> Accionar el rodete con los dedos; debe girar con absoluta suavidad, sin ruidos de roce metálico contra la carcasa.</li>
+                            <li><strong>Medición de Juego Axial y Radial:</strong> Instalar base magnética y acoplar el reloj comparador de carátula al centro del eje del rotor. 
+                                <br>- Desplazamiento axial límite: <strong>0.20 mm</strong>. 
+                                <br>- Desplazamiento radial límite: <strong>0.11 mm</strong>.</li>
+                            <li><strong>Verificación de holgura de álabes:</strong> Utilizar las <strong>Galgas de Espesores (Feeler Gauge)</strong> para comprobar la luz libre entre los álabes del rodete y la pared interior de la caracola. Si las galgas indican roce o desviación excéntrica excesiva, o si el reloj comparador supera los límites, el turbocompresor debe ser reemplazado.</li>
                         </ol>
                     </td>
                 </tr>
             </table>
 
-            <h3>D. Colector de Admisión</h3>
+            <h3>D. Colector de Admisión y Sensores de Aire</h3>
             <img src="https://raw.githubusercontent.com/franteubersandrock-spec/QR-doosan/main/colector.png" alt="Colector de Admisión" class="img-componente">
             <table>
                 <tr>
                     <th width="25%">Dotación Asignada</th>
-                    <td><strong>2 Personas</strong> (Técnico 1: Alineación y apriete dinámico | Técnico 2: Soporte físico y control de torque)</td>
+                    <td><strong>2 Personas</strong> (Técnico 1: Apriete dinámico y electrónica | Técnico 2: Soporte físico)</td>
                 </tr>
                 <tr>
                     <th>Procedimiento Paso a Paso y Torques</th>
                     <td>
                         <ol class="pasos-mantenimiento">
-                            <li><strong>Desmontaje secuencial:</strong> Para evitar deformaciones o alabeos estructurales en la fundición del colector, aflojar los pernos de fijación siguiendo un <strong>orden inverso al apriete</strong> (desde los pernos extremos hacia el centro de manera progresiva). Retirar la pieza.</li>
-                            <li><strong>Limpieza de superficies:</strong> Retirar por completo los restos de las empaquetaduras (gaskets) antiguas adheridas a la culata utilizando <strong>rasquetas de plástico o bronce</strong>. Está prohibido el uso de herramientas de acero cortantes para prevenir surcos o rayas que destruyan el sello hermético.</li>
-                            <li><strong>Preparación de juntas:</strong> Limpiar los puertos de admisión con un paño limpio y posicionar empaquetaduras nuevas, verificando la orientación correcta frente a los espárragos y ductos de aire.</li>
-                            <li><strong>Instalación y apriete inicial:</strong> Presentar el colector de admisión en su posición original y enroscar manualmente todos los pernos de sujeción hasta sentir el tope de asiento.</li>
-                            <li><strong>Aplicación de Torque Dinamométrico:</strong> Utilizando una llave dinamométrica calibrada, aplicar el torque final siguiendo estrictamente un <strong>patrón cruzado desde el centro hacia los extremos</strong> en etapas sucesivas:
+                            <li><strong>Desmontaje secuencial:</strong> Aflojar los pernos de fijación siguiendo un <strong>orden inverso al apriete</strong> (desde los extremos hacia el centro).</li>
+                            <li><strong>Limpieza de superficies:</strong> Retirar restos de empaquetaduras (gaskets) antiguas de la culata utilizando <strong>rasquetas de plástico o bronce</strong>.</li>
+                            <li><strong>Instalación y apriete del colector:</strong> Utilizando llave dinamométrica estándar, aplicar el torque final siguiendo un <strong>patrón cruzado desde el centro hacia los extremos</strong>:
                                 <ul style="margin-top: 5px; background: #eef2f5; padding: 10px 10px 10px 30px; border-radius: 4px;">
-                                    <li>Pernos métricos <strong>M10</strong>: Torque de apriete de <strong>4.4 kg·m</strong> (43 N·m).</li>
-                                    <li>Pernos métricos <strong>M8</strong>: Torque de apriete de <strong>2.2 kg·m</strong> (22 N·m).</li>
+                                    <li>Pernos métricos <strong>M10</strong>: Torque de <strong>4.4 kg·m</strong>.</li>
+                                    <li>Pernos métricos <strong>M8</strong>: Torque de <strong>2.2 kg·m</strong>.</li>
                                 </ul>
                             </li>
+                            <li><strong>Montaje de Sensores (Instrumentación):</strong> Utilizando <strong>guantes antiestáticos (ESD)</strong>, proceda a instalar los sensores de presión (Boost) y temperatura del aire de carga. Utilice el <strong>torquímetro de rango bajo</strong> para aplicar un apriete exacto, de modo que la arandela de cobre asiente perfectamente sin fisurar la rosca del block.</li>
+                            <li><strong>Comprobación de Señal:</strong> Antes de energizar completamente el panel, verifique la continuidad y la correcta emisión de señal de los sensores montados utilizando el <strong>multímetro True-RMS y el calibrador de lazos de corriente (4-20mA)</strong>.</li>
                         </ol>
                     </td>
                 </tr>
@@ -316,7 +329,7 @@
         </div>
 
         <div id="mensaje-exito">
-            Mantenimiento certificado con éxito. El sistema de Admisión y Sobrealimentación del Doosan P126TI-II se encuentra operativo y seguro para liberar el bloqueo LOTO.
+            Mantenimiento certificado con éxito. El sistema de Admisión y Sobrealimentación del Doosan P126TI-II se encuentra operativo y seguro para retirar el candado LOTO, conectar baterías y energizar el panel APM303.
         </div>
 
         <div class="footer">

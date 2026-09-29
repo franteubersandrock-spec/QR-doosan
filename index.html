@@ -14,10 +14,11 @@
         th, td { border: 1px solid #ddd; padding: 8px; text-align: left; vertical-align: top; }
         th { background-color: #f0f8ff; color: #004080; }
         
-        .epp-box { background: #eef2f7; border-left: 5px solid #004080; padding: 15px; margin-bottom: 20px; border-radius: 4px; }
-        
         .loto-box { background: #fdf2f2; border: 2px solid #d9534f; padding: 20px; border-radius: 6px; margin-bottom: 20px; }
         .loto-box h2 { background: transparent; color: #d9534f; font-size: 1.5rem; margin: 0 0 10px 0; padding: 0; text-align: center; }
+
+        .epp-box { background: #eef2f7; border-left: 5px solid #004080; padding: 20px; margin-bottom: 20px; border-radius: 4px; }
+        .epp-box h2 { background: transparent; color: #004080; font-size: 1.3rem; margin: 0 0 10px 0; padding: 0; }
 
         .system-def-box { background: #eef2f7; border-left: 5px solid #004080; padding: 15px; margin-bottom: 20px; border-radius: 4px; font-size: 0.9rem; }
         .system-def-box ul { margin: 8px 0 0 0; padding-left: 20px; }
@@ -63,60 +64,52 @@
         <div id="seccion-encuesta">
             
             <div class="loto-box">
-                <h2>1. Control de Energías Peligrosas (LOTO)</h2>
-                <p style="text-align: center; font-size: 0.95rem; margin-bottom: 15px;">Validación de aislamiento eléctrico y bloqueo antes de la intervención física:</p>
+                <h2>Aislamiento y Bloqueo Operativo (LOTO)</h2>
+                <p style="text-align: center; font-size: 0.95rem; margin-bottom: 15px;">Aseguramiento de energías residuales previo a la intervención mecánica:</p>
                 <div class="checklist-container">
                     <div class="checklist-item" style="border-color: #d9534f;">
                         <input type="checkbox" id="chk-loto-1" class="chk-seguridad">
-                        <label for="chk-loto-1" class="checklist-text">Desenergización de Control: Detención total del equipo desde el módulo APM303 asegurando que no existan arranques programados activos.</label>
+                        <label for="chk-loto-1" class="checklist-text"><strong>Fase 1: Neutralización Lógica.</strong> El panel controlador APM303 ha sido apagado completamente, inhabilitando secuencias de partida automática.</label>
                     </div>
                     <div class="checklist-item" style="border-color: #d9534f;">
                         <input type="checkbox" id="chk-loto-2" class="chk-seguridad">
-                        <label for="chk-loto-2" class="checklist-text">Aislamiento de Fuerza (24V DC): Desconexión del banco de baterías, aislando rigurosamente el borne negativo en primera instancia para suprimir arcos eléctricos.</label>
+                        <label for="chk-loto-2" class="checklist-text"><strong>Fase 2: Supresión de Fuerza (24V).</strong> El banco de acumulación está desconectado. Se aisló primero el chasis/masa para mitigar cualquier riesgo de arco eléctrico.</label>
                     </div>
                     <div class="checklist-item" style="border-color: #d9534f;">
                         <input type="checkbox" id="chk-loto-3" class="chk-seguridad">
-                        <label for="chk-loto-3" class="checklist-text">Bloqueo Mecánico: Instalación de candado de seguridad y tarjeta de advertencia (Lockout/Tagout) en el seccionador principal de corriente.</label>
-                    </div>
-                    <div class="checklist-item" style="border-color: #d9534f;">
-                        <input type="checkbox" id="chk-loto-4" class="chk-seguridad">
-                        <label for="chk-loto-4" class="checklist-text">Comprobación de Tensión Cero: Verificación con multímetro en bornes del panel y desconexión segura del circuito de sensores usando herramientas dieléctricas.</label>
+                        <label for="chk-loto-3" class="checklist-text"><strong>Fase 3: Enclavamiento y Comprobación.</strong> Se instaló el dispositivo Lockout/Tagout en el seccionador, y se confirmó la ausencia de voltaje mediante multímetro en bornes.</label>
                     </div>
                 </div>
             </div>
 
-            <h2>2. Indumentaria y Restricciones (Laboratorio)</h2>
             <div class="epp-box">
-                <p style="font-size: 0.95rem; margin-top: 0;">Revisión cruzada entre técnicos de la indumentaria personal exigida:</p>
+                <h2>Reglamento de Vestimenta y EPP</h2>
+                <p style="font-size: 0.95rem; margin-top: 0;">Inspección cruzada de seguridad personal para ingreso a Laboratorio de Máquinas:</p>
                 <div class="checklist-container">
                     <div class="checklist-item">
                         <input type="checkbox" id="chk-epp-1" class="chk-seguridad">
-                        <label for="chk-epp-1" class="checklist-text">Vestimenta Técnica: Uso de overol industrial sin partes holgadas y calzado de seguridad con aislación eléctrica.</label>
+                        <label for="chk-epp-1" class="checklist-text"><strong>Riesgo de Atrapamiento:</strong> Cabello totalmente recogido, overol de trabajo ajustado (sin piezas colgantes) y supresión de accesorios (relojes, cadenas, anillos).</label>
                     </div>
                     <div class="checklist-item">
                         <input type="checkbox" id="chk-epp-2" class="chk-seguridad">
-                        <label for="chk-epp-2" class="checklist-text">Protección Manual Adaptativa: Guantes antiestáticos (ESD) para desconexión de sensores, y guantes mecánicos pesados para desmontaje de caracolas y colector.</label>
+                        <label for="chk-epp-2" class="checklist-text"><strong>Protección Sensorial e Impacto:</strong> Botas dieléctricas antideslizantes, lentes de policarbonato para protección ocular y fonos/tapones auditivos instalados.</label>
                     </div>
                     <div class="checklist-item">
                         <input type="checkbox" id="chk-epp-3" class="chk-seguridad">
-                        <label for="chk-epp-3" class="checklist-text">Seguridad Craneal y Sensorial: Lentes de policarbonato envolventes, protección auditiva colocada y cabello contenido íntegramente bajo casco.</label>
-                    </div>
-                    <div class="checklist-item">
-                        <input type="checkbox" id="chk-epp-4" class="chk-seguridad">
-                        <label for="chk-epp-4" class="checklist-text">Restricción de Elementos Extraños: Retiro total de cadenas, anillos, relojes o cualquier accesorio metálico personal.</label>
+                        <label for="chk-epp-3" class="checklist-text"><strong>Aislación Manual Selectiva:</strong> El técnico cuenta con guantes ESD (antiestáticos) para manipular placas/sensores y guantes de descarne térmico para trabajar sobre el bloque motor.</label>
                     </div>
                 </div>
             </div>
 
-            <h2>3. Análisis Previo de Riesgos (APR)</h2>
+            <h2>Análisis Previo de Entorno y Riesgos (APR)</h2>
             <div class="checklist-container">
                 <div class="checklist-item">
                     <input type="checkbox" id="chk-apr-1" class="chk-seguridad">
-                    <label for="chk-apr-1" class="checklist-text">Liberación Térmica: Medición con pirómetro certificando que los cuerpos de hierro fundido del turbo se encuentran bajo los 40°C y sin giro residual.</label>
+                    <label for="chk-apr-1" class="checklist-text"><strong>Estabilidad Térmica:</strong> Barrido con pirómetro óptico comprobando que las caracolas del turbocompresor registran menos de 40°C y no existe giro inercial.</label>
                 </div>
                 <div class="checklist-item">
                     <input type="checkbox" id="chk-apr-2" class="chk-seguridad">
-                    <label for="chk-apr-2" class="checklist-text">Gestión Ambiental: Hojas de seguridad (HDS) de desengrasantes leídas y contenedores rojos (norma MARPOL) posicionados para trapos oleosos.</label>
+                    <label for="chk-apr-2" class="checklist-text"><strong>Control Ambiental:</strong> Contenedores normados (MARPOL Anexo I) habilitados para disposición de trapos oleosos, con conocimiento previo de las HDS de los solventes a utilizar.</label>
                 </div>
             </div>
 
@@ -129,8 +122,8 @@
             <div class="system-def-box">
                 <strong>Definición del Sistema:</strong> Subsistema de Admisión y Sobrealimentación del motor Doosan P126TI-II. 
                 <ul>
-                    <li><strong>Límite Operativo:</strong> Desde la succión exterior del filtro de aire y el sistema de turbocompresor/intercooler, hasta los puertos de montaje del colector de admisión en la culata del motor.</li>
-                    <li><strong>Clasificación de Criticidad (FMECA):</strong> Identificación de elementos críticos (alto impacto operacional/seguridad) frente a elementos de soporte auxiliar.</li>
+                    <li><strong>Límite Operativo:</strong> Desde la succión exterior del filtro de aire y el sistema de turbocompresión/intercooler, hasta los puertos de montaje del colector de admisión en la culata del motor.</li>
+                    <li><strong>Clasificación de Criticidad (FMECA):</strong> Identificación de elementos críticos (alto impacto operacional/seguridad) frente a elementos auxiliares.</li>
                 </ul>
             </div>
 
@@ -180,14 +173,14 @@
             <div class="tools-box" style="margin-top: 15px;">
                 <h4>Herramientas de Taller e Instrumentos Metrológicos</h4>
                 <ul>
-                    <li><strong>Mecánicas:</strong> Juego de llaves métricas combinadas, dados, rasqueta de bronce o polímero, pistola neumática regulada (5 bar) y base magnética pesada.</li>
-                    <li><strong>Calibración Obligatoria (ISO 17025):</strong> Reloj Comparador (0.01 mm), Llave Dinamométrica (1-10 kg·m), Torquímetro de precisión y Pirómetro Óptico.</li>
-                    <li><strong>Ajuste Fino:</strong> Set de Galgas de Espesores para medición de luz en rodetes.</li>
+                    <li><strong>Mecánica Pesada:</strong> Juego de llaves métricas combinadas, juego de dados, espátulas/rasquetas de bronce, pistola de aire neumática (5 bar) y base magnética para relojes.</li>
+                    <li><strong>Calibración Obligatoria (ISO 17025):</strong> Reloj Comparador (precisión 0.01 mm), Llave Dinamométrica (1-10 kg·m), Torquímetro de rango bajo y Pirómetro Óptico.</li>
+                    <li><strong>Ajuste Fino:</strong> Galgas de Espesores (Feeler Gauge) destinadas a comprobar el margen de luz en el rodete del turbo.</li>
                 </ul>
                 <h4 style="margin-top: 15px; color: #d9534f;">Equipamiento Electrónico (Sensores de Admisión)</h4>
                 <ul>
-                    <li><strong>Medición:</strong> Multímetro True-RMS y calibrador de lazos de proceso (4-20mA).</li>
-                    <li><strong>Aislación:</strong> Set de destornilladores dieléctricos normados a 1000V.</li>
+                    <li><strong>Diagnóstico de Señales:</strong> Multímetro True-RMS y calibrador de lazos de proceso (4-20mA).</li>
+                    <li><strong>Protección y Aislación:</strong> Set de destornilladores dieléctricos (1000V) para borneras del panel.</li>
                 </ul>
             </div>
 
@@ -288,42 +281,38 @@
 
         <!-- FASE DE CIERRE Y VERIFICACIÓN POST-MANTENIMIENTO -->
         <div class="cierre-box">
-            <h2>Fase 4: Encuesta de Cierre y Verificación Post-Mantenimiento</h2>
-            <p style="text-align: center; font-size: 0.95rem; margin-bottom: 15px;">Validación obligatoria antes de retirar bloqueos y energizar el equipo:</p>
+            <h2>Fase 4: Verificación Post-Mantenimiento</h2>
+            <p style="text-align: center; font-size: 0.95rem; margin-bottom: 15px;">Aprobación técnica requerida antes de restaurar la energía:</p>
             
             <div class="checklist-container">
                 <div class="checklist-item" style="background: #fff;">
                     <input type="checkbox" id="cierre-1" class="chk-cierre">
-                    <label for="cierre-1" class="checklist-text">¿Se retiraron todas las herramientas manuales, instrumentos y elementos extraños del área de trabajo?
-                    <span class="checklist-note">Revisión visual exhaustiva del vano del motor y bancadas.</span></label>
+                    <label for="cierre-1" class="checklist-text">Inspección de Extravíos: El área de trabajo, bancadas y motor han sido despejados de toda herramienta manual e instrumentación.</label>
                 </div>
                 <div class="checklist-item" style="background: #fff;">
                     <input type="checkbox" id="cierre-2" class="chk-cierre">
-                    <label for="cierre-2" class="checklist-text">¿Se confirmó la ausencia absoluta de piezas, trapos, tornillos u objetos sueltos al interior de los conductos y cámara del motor?
-                    <span class="checklist-note">Prevención crítica de daños catastróficos por ingestión de cuerpos extraños.</span></label>
+                    <label for="cierre-2" class="checklist-text">Limpieza de Conductos: Certeza absoluta de que no han quedado residuos, tornillos ni trapos dentro de las tuberías de admisión de aire (Prevención FOD).</label>
                 </div>
                 <div class="checklist-item" style="background: #fff;">
                     <input type="checkbox" id="cierre-3" class="chk-cierre">
-                    <label for="cierre-3" class="checklist-text">¿Quedaron todas las piezas, abrazaderas, uniones y pernos firmemente instalados en su lugar con su respectivo torque?
-                    <span class="checklist-note">Verificación cruzada de estanqueidad en línea de admisión y sobrealimentación.</span></label>
+                    <label for="cierre-3" class="checklist-text">Verificación Estructural: Mangueras de silicona acopladas firmemente y todas las uniones apernadas con el torque especificado.</label>
                 </div>
                 <div class="checklist-item" style="background: #fff;">
                     <input type="checkbox" id="cierre-4" class="chk-cierre">
-                    <label for="cierre-4" class="checklist-text">¿Se realizó el orden, limpieza total de la zona de trabajo y disposición de residuos peligrosos (MARPOL)?
-                    <span class="checklist-note">Área de operación despejada, libre de derrames y herramientas ordenadas en carro.</span></label>
+                    <label for="cierre-4" class="checklist-text">Disposición de Residuos: Taller ordenado y materiales peligrosos confinados temporalmente bajo norma MARPOL.</label>
                 </div>
             </div>
 
-            <button id="btn-finalizar" disabled>Certificar Cierre Exitoso de Mantención</button>
+            <button id="btn-finalizar" disabled>Certificar Cierre de Intervención</button>
         </div>
 
         <div id="mensaje-exito">
-            Mantenimiento certificado con éxito. El sistema de Admisión y Sobrealimentación del Doosan P126TI-II se encuentra operativo y seguro para retirar el candado LOTO, conectar baterías y energizar el panel de control.
+            Intervención técnica certificada exitosamente. El subsistema de Admisión y Sobrealimentación del Doosan P126TI-II está operativo y validado para remover candado LOTO y restablecer el encendido.
         </div>
 
         <div class="footer">
             Taller de Especialización II - Gestión y Mantención de Máquinas Marinas<br>
-            <strong>Equipo: Doosan P126TI-II/SDMO D330 (LMM)</strong><br>
+            <strong>Equipo: Doosan P126TI-II / SDMO D330 (LMM)</strong><br>
             Alumno(a): Francisco Teuber Sandrock
         </div>
     </div>
@@ -365,12 +354,12 @@
                     btnFinalizar.disabled = false;
                     btnFinalizar.style.backgroundColor = "#28a745";
                     btnFinalizar.style.cursor = "pointer";
-                    btnFinalizar.textContent = "CERTIFICAR CIERRE EXITOSO DE MANTENCIÓN";
+                    btnFinalizar.textContent = "CERTIFICAR CIERRE DE INTERVENCIÓN";
                 } else {
                     btnFinalizar.disabled = true;
                     btnFinalizar.style.backgroundColor = "#6c757d";
                     btnFinalizar.style.cursor = "not-allowed";
-                    btnFinalizar.textContent = "Certificar Cierre Exitoso de Mantención";
+                    btnFinalizar.textContent = "Certificar Cierre de Intervención";
                 }
             }
 

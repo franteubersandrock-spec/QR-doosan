@@ -21,8 +21,8 @@
         .loto-box { background: #fdf2f2; border: 2px solid #d9534f; padding: 20px; text-align: center; border-radius: 6px; margin-bottom: 20px; }
         .loto-box h2 { background: transparent; color: #d9534f; font-size: 1.5rem; margin: 0 0 10px 0; padding: 0; }
 
-        .fmeca-criteria { background: #eef2f7; border-left: 5px solid #004080; padding: 15px; margin-bottom: 20px; border-radius: 4px; font-size: 0.9rem; }
-        .fmeca-criteria ul { margin: 8px 0 0 0; padding-left: 20px; }
+        .system-def-box { background: #eef2f7; border-left: 5px solid #004080; padding: 15px; margin-bottom: 20px; border-radius: 4px; font-size: 0.9rem; }
+        .system-def-box ul { margin: 8px 0 0 0; padding-left: 20px; }
 
         .cierre-box { background: #e8f5e9; border: 2px solid #28a745; padding: 20px; border-radius: 6px; margin-top: 30px; margin-bottom: 20px; }
         .cierre-box h2 { background: transparent; color: #2e7d32; font-size: 1.3rem; margin: 0 0 15px 0; padding: 0; text-align: center; }
@@ -51,8 +51,8 @@
         .tools-box h4 { margin-top: 0; color: #333; }
 
         .critical { font-weight: bold; color: #d9534f; }
-        .badge-alta { background: #f8d7da; color: #721c24; padding: 3px 6px; border-radius: 4px; font-weight: bold; }
-        .badge-media { background: #fff3cd; color: #856404; padding: 3px 6px; border-radius: 4px; font-weight: bold; }
+        .badge-critico { background: #f8d7da; color: #721c24; padding: 4px 8px; border-radius: 4px; font-weight: bold; display: inline-block; }
+        .badge-nocritico { background: #d1ecf1; color: #0c5460; padding: 4px 8px; border-radius: 4px; font-weight: bold; display: inline-block; }
 
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
         .footer { text-align: center; margin-top: 30px; font-size: 0.8rem; color: #777; border-top: 1px solid #ddd; padding-top: 15px; }
@@ -115,71 +115,50 @@
 
         <div id="seccion-mantenimiento">
             
-            <h2>1. Análisis FMECA del Subsistema y Criterios de Criticidad</h2>
-            <div class="fmeca-criteria">
-                <strong>Parámetros de Evaluación FMECA (IEC 60812 / Curso LMM):</strong>
+            <h2>1. Definición del Sistema y Clasificación FMECA (Críticos vs. No Críticos)</h2>
+            <div class="system-def-box">
+                <strong>Definición del Sistema:</strong> Subsistema de Admisión y Sobrealimentación del motor Doosan P126TI-II. 
                 <ul>
-                    <li><strong>Fórmula NPR:</strong> $\text{NPR} = \text{Severidad (S)} \times \text{Ocurrencia (O)} \times \text{Detección (D)}$ (Rango 1 a 1000).</li>
-                    <li><strong>Criterio de Criticidad:</strong> 
-                        <span style="color:#d9534f; font-weight:bold;">MUY ALTA</span> si NPR ≥ 200 o S = 10 | 
-                        <span style="color:#f0ad4e; font-weight:bold;">ALTA</span> si NPR ≥ 100 | 
-                        <span style="color:#5bc0de; font-weight:bold;">MEDIA</span> si NPR ≥ 40 | 
-                        <span style="color:#5cb85c; font-weight:bold;">BAJA</span> si NPR < 40.
-                    </li>
-                    <li><strong>Regla de Severidad:</strong> Todo modo de falla con S = 9 o 10 se gestiona como prioritario independiente de un NPR bajo (la consecuencia manda).</li>
+                    <li><strong>Límite Operativo:</strong> Desde la succión exterior del filtro de aire y el sistema de turbocompresión/intercooler, hasta los puertos de montaje del colector de admisión en la culata del motor.</li>
+                    <li><strong>Clasificación de Criticidad (FMECA):</strong> Identificación de elementos críticos (alto impacto operacional/seguridad) frente a elementos de soporte auxiliar.</li>
                 </ul>
             </div>
 
             <table>
                 <tr>
                     <th>Componente / Ítem</th>
-                    <th>Modo de Falla Potencial</th>
-                    <th>S</th>
-                    <th>O</th>
-                    <th>D</th>
-                    <th>NPR</th>
-                    <th>Criticidad</th>
-                    <th>Política Derivada</th>
+                    <th>Clasificación FMECA</th>
+                    <th>Modo de Falla Potencial Principal</th>
+                    <th>S | O | D (NPR)</th>
+                    <th>Política de Mantenimiento Derivada</th>
                 </tr>
                 <tr>
                     <td><strong>Turbocompresor</strong></td>
-                    <td>Desgaste excesivo de cojinetes / superación de holgura axial o radial límite.</td>
-                    <td>9</td>
-                    <td>3</td>
-                    <td>4</td>
-                    <td><strong>108</strong></td>
-                    <td><span class="badge-alta">ALTA (Regla S=9)</span></td>
-                    <td>Mantenimiento condicional estricto c/3000h + medición con reloj comparador.</td>
+                    <td><span class="badge-critico">⚠️ COMPONENTE CRÍTICO (Alta Criticidad / S=9)</span></td>
+                    <td>Desgaste excesivo de cojinetes y superación de holgura axial/radial límite.</td>
+                    <td>S=9, O=3, D=4 <br><strong>NPR = 108</strong></td>
+                    <td>Mantenimiento condicional estricto cada 3.000 h con medición metrológica (reloj comparador).</td>
                 </tr>
                 <tr>
                     <td><strong>Filtro de Aire</strong></td>
-                    <td>Saturación prematura del elemento o rotura del medio filtrante de papel.</td>
-                    <td>7</td>
-                    <td>5</td>
-                    <td>2</td>
-                    <td><strong>70</strong></td>
-                    <td><span class="badge-media">MEDIA</span></td>
-                    <td>Limpieza sopleteado c/400h e inspección visual a trasluz.</td>
+                    <td><span class="badge-nocritico">ℹ️ COMPONENTE NO CRÍTICO (Criticidad Media)</span></td>
+                    <td>Saturación prematura del cartucho o rotura del medio filtrante de papel.</td>
+                    <td>S=7, O=5, D=2 <br><strong>NPR = 70</strong></td>
+                    <td>Mantenimiento preventivo periódico (limpieza y sopleteado cada 200/400 h).</td>
                 </tr>
                 <tr>
                     <td><strong>Intercooler</strong></td>
-                    <td>Obstrucción por suciedad externa en aletas o filtración interna de aceite.</td>
-                    <td>6</td>
-                    <td>4</td>
-                    <td>3</td>
-                    <td><strong>72</strong></td>
-                    <td><span class="badge-media">MEDIA</span></td>
-                    <td>Inspección de ductos y lavado químico c/600h.</td>
+                    <td><span class="badge-nocritico">ℹ️ COMPONENTE NO CRÍTICO (Criticidad Media)</span></td>
+                    <td>Obstrucción externa de aletas por suciedad o filtración interna de aceite.</td>
+                    <td>S=6, O=4, D=3 <br><strong>NPR = 72</strong></td>
+                    <td>Mantenimiento preventivo e inspección de ductos cada 600 h.</td>
                 </tr>
                 <tr>
                     <td><strong>Colector de Admisión</strong></td>
-                    <td>Fuga de presión/gases por envejecimiento o alabeo de empaquetaduras (gaskets).</td>
-                    <td>6</td>
-                    <td>3</td>
-                    <td>3</td>
-                    <td><strong>54</strong></td>
-                    <td><span class="badge-media">MEDIA</span></td>
-                    <td>Sustitución de juntas por condición y apriete con torque cruzado.</td>
+                    <td><span class="badge-nocritico">ℹ️ COMPONENTE NO CRÍTICO (Criticidad Media)</span></td>
+                    <td>Fuga de presión por envejecimiento o alabeo de empaquetaduras (gaskets).</td>
+                    <td>S=6, O=3, D=3 <br><strong>NPR = 54</strong></td>
+                    <td>Sustitución por condición de juntas y control con torque cruzado.</td>
                 </tr>
             </table>
 

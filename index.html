@@ -6,12 +6,12 @@
     <title>Panel QR - Admisión y Sobrealimentación Doosan</title>
     <style>
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f4f7f6; color: #333; line-height: 1.6; padding: 15px; margin: 0; }
-        .container { max-width: 850px; margin: 0 auto; background: white; padding: 25px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.15); border-top: 6px solid #004080; }
+        .container { max-width: 900px; margin: 0 auto; background: white; padding: 25px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.15); border-top: 6px solid #004080; }
         h1 { color: #004080; font-size: 1.6rem; text-align: center; border-bottom: 2px solid #eee; padding-bottom: 10px; margin-top: 0; }
         h2 { color: #fff; font-size: 1.2rem; background: #0056b3; padding: 10px; border-radius: 4px; margin-top: 25px; }
         h3 { color: #004080; font-size: 1.1rem; border-bottom: 1px solid #ccc; padding-bottom: 5px; margin-top: 25px; }
-        table { width: 100%; border-collapse: collapse; margin-top: 10px; font-size: 0.9rem; background: #fff; }
-        th, td { border: 1px solid #ddd; padding: 10px; text-align: left; vertical-align: top; }
+        table { width: 100%; border-collapse: collapse; margin-top: 10px; font-size: 0.85rem; background: #fff; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; vertical-align: top; }
         th { background-color: #f0f8ff; color: #004080; }
         
         .epp-box { background: #fff3cd; border-left: 5px solid #ffc107; padding: 15px; margin-bottom: 20px; border-radius: 4px; }
@@ -20,6 +20,9 @@
 
         .loto-box { background: #fdf2f2; border: 2px solid #d9534f; padding: 20px; text-align: center; border-radius: 6px; margin-bottom: 20px; }
         .loto-box h2 { background: transparent; color: #d9534f; font-size: 1.5rem; margin: 0 0 10px 0; padding: 0; }
+
+        .fmeca-criteria { background: #eef2f7; border-left: 5px solid #004080; padding: 15px; margin-bottom: 20px; border-radius: 4px; font-size: 0.9rem; }
+        .fmeca-criteria ul { margin: 8px 0 0 0; padding-left: 20px; }
 
         .cierre-box { background: #e8f5e9; border: 2px solid #28a745; padding: 20px; border-radius: 6px; margin-top: 30px; margin-bottom: 20px; }
         .cierre-box h2 { background: transparent; color: #2e7d32; font-size: 1.3rem; margin: 0 0 15px 0; padding: 0; text-align: center; }
@@ -48,6 +51,8 @@
         .tools-box h4 { margin-top: 0; color: #333; }
 
         .critical { font-weight: bold; color: #d9534f; }
+        .badge-alta { background: #f8d7da; color: #721c24; padding: 3px 6px; border-radius: 4px; font-weight: bold; }
+        .badge-media { background: #fff3cd; color: #856404; padding: 3px 6px; border-radius: 4px; font-weight: bold; }
 
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
         .footer { text-align: center; margin-top: 30px; font-size: 0.8rem; color: #777; border-top: 1px solid #ddd; padding-top: 15px; }
@@ -110,7 +115,75 @@
 
         <div id="seccion-mantenimiento">
             
-            <h2>1. Resumen de HH y Herramientas Requeridas</h2>
+            <h2>1. Análisis FMECA del Subsistema y Criterios de Criticidad</h2>
+            <div class="fmeca-criteria">
+                <strong>Parámetros de Evaluación FMECA (IEC 60812 / Curso LMM):</strong>
+                <ul>
+                    <li><strong>Fórmula NPR:</strong> $\text{NPR} = \text{Severidad (S)} \times \text{Ocurrencia (O)} \times \text{Detección (D)}$ (Rango 1 a 1000).</li>
+                    <li><strong>Criterio de Criticidad:</strong> 
+                        <span style="color:#d9534f; font-weight:bold;">MUY ALTA</span> si NPR ≥ 200 o S = 10 | 
+                        <span style="color:#f0ad4e; font-weight:bold;">ALTA</span> si NPR ≥ 100 | 
+                        <span style="color:#5bc0de; font-weight:bold;">MEDIA</span> si NPR ≥ 40 | 
+                        <span style="color:#5cb85c; font-weight:bold;">BAJA</span> si NPR < 40.
+                    </li>
+                    <li><strong>Regla de Severidad:</strong> Todo modo de falla con S = 9 o 10 se gestiona como prioritario independiente de un NPR bajo (la consecuencia manda).</li>
+                </ul>
+            </div>
+
+            <table>
+                <tr>
+                    <th>Componente / Ítem</th>
+                    <th>Modo de Falla Potencial</th>
+                    <th>S</th>
+                    <th>O</th>
+                    <th>D</th>
+                    <th>NPR</th>
+                    <th>Criticidad</th>
+                    <th>Política Derivada</th>
+                </tr>
+                <tr>
+                    <td><strong>Turbocompresor</strong></td>
+                    <td>Desgaste excesivo de cojinetes / superación de holgura axial o radial límite.</td>
+                    <td>9</td>
+                    <td>3</td>
+                    <td>4</td>
+                    <td><strong>108</strong></td>
+                    <td><span class="badge-alta">ALTA (Regla S=9)</span></td>
+                    <td>Mantenimiento condicional estricto c/3000h + medición con reloj comparador.</td>
+                </tr>
+                <tr>
+                    <td><strong>Filtro de Aire</strong></td>
+                    <td>Saturación prematura del elemento o rotura del medio filtrante de papel.</td>
+                    <td>7</td>
+                    <td>5</td>
+                    <td>2</td>
+                    <td><strong>70</strong></td>
+                    <td><span class="badge-media">MEDIA</span></td>
+                    <td>Limpieza sopleteado c/400h e inspección visual a trasluz.</td>
+                </tr>
+                <tr>
+                    <td><strong>Intercooler</strong></td>
+                    <td>Obstrucción por suciedad externa en aletas o filtración interna de aceite.</td>
+                    <td>6</td>
+                    <td>4</td>
+                    <td>3</td>
+                    <td><strong>72</strong></td>
+                    <td><span class="badge-media">MEDIA</span></td>
+                    <td>Inspección de ductos y lavado químico c/600h.</td>
+                </tr>
+                <tr>
+                    <td><strong>Colector de Admisión</strong></td>
+                    <td>Fuga de presión/gases por envejecimiento o alabeo de empaquetaduras (gaskets).</td>
+                    <td>6</td>
+                    <td>3</td>
+                    <td>3</td>
+                    <td><strong>54</strong></td>
+                    <td><span class="badge-media">MEDIA</span></td>
+                    <td>Sustitución de juntas por condición y apriete con torque cruzado.</td>
+                </tr>
+            </table>
+
+            <h2>2. Resumen de HH y Herramientas Requeridas</h2>
             
             <table>
                 <tr><th>Cod.</th><th>Trabajo de Intervención</th><th>Frec.</th><th>HH Total</th></tr>
@@ -134,7 +207,7 @@
                 </ul>
             </div>
 
-            <h2>2. Pauta Técnica Detallada por Subconjunto</h2>
+            <h2>3. Pauta Técnica Detallada por Subconjunto</h2>
             
             <h3>A. Filtro de Aire</h3>
             <img src="https://raw.githubusercontent.com/franteubersandrock-spec/QR-doosan/main/filtro.png" alt="Filtro de Aire" class="img-componente">
@@ -230,41 +303,41 @@
                 </tr>
             </table>
 
-            <!-- FASE DE CIERRE Y VERIFICACIÓN POST-MANTENIMIENTO -->
-            <div class="cierre-box">
-                <h2>📋 Fase 3: Encuesta de Cierre y Verificación Post-Mantenimiento</h2>
-                <p style="text-align: center; font-size: 0.95rem; margin-bottom: 15px;">Validación obligatoria antes de retirar bloqueos y energizar el equipo:</p>
-                
-                <div class="checklist-container">
-                    <div class="checklist-item" style="background: #fff;">
-                        <input type="checkbox" id="cierre-1" class="chk-cierre">
-                        <label for="cierre-1" class="checklist-text">¿Se retiraron todas las herramientas manuales, instrumentos y elementos extraños del área de trabajo?
-                        <span class="checklist-note">Revisión visual exhaustiva del vano del motor y bancadas.</span></label>
-                    </div>
-                    <div class="checklist-item" style="background: #fff;">
-                        <input type="checkbox" id="cierre-2" class="chk-cierre">
-                        <label for="cierre-2" class="checklist-text">¿Se confirmó la ausencia absoluta de piezas, trapos, tornillos u objetos sueltos al interior de los conductos y cámara del motor?
-                        <span class="checklist-note">Prevención crítica de daños catastróficos por ingestión de cuerpos extraños.</span></label>
-                    </div>
-                    <div class="checklist-item" style="background: #fff;">
-                        <input type="checkbox" id="cierre-3" class="chk-cierre">
-                        <label for="cierre-3" class="checklist-text">¿Quedaron todas las piezas, abrazaderas, uniones y pernos firmemente instalados en su lugar con su respectivo torque?
-                        <span class="checklist-note">Verificación cruzada de estanqueidad en línea de admisión y sobrealimentación.</span></label>
-                    </div>
-                    <div class="checklist-item" style="background: #fff;">
-                        <input type="checkbox" id="cierre-4" class="chk-cierre">
-                        <label for="cierre-4" class="checklist-text">¿Se realizó el orden, limpieza total de la zona de trabajo y disposición de residuos peligrosos (MARPOL)?
-                        <span class="checklist-note">Área de operación despejada, libre de derrames y herramientas ordenadas en carro.</span></label>
-                    </div>
+        </div> <!-- Fin sección mantenimiento -->
+
+        <!-- FASE DE CIERRE Y VERIFICACIÓN POST-MANTENIMIENTO -->
+        <div class="cierre-box">
+            <h2>📋 Fase 4: Encuesta de Cierre y Verificación Post-Mantenimiento</h2>
+            <p style="text-align: center; font-size: 0.95rem; margin-bottom: 15px;">Validación obligatoria antes de retirar bloqueos y energizar el equipo:</p>
+            
+            <div class="checklist-container">
+                <div class="checklist-item" style="background: #fff;">
+                    <input type="checkbox" id="cierre-1" class="chk-cierre">
+                    <label for="cierre-1" class="checklist-text">¿Se retiraron todas las herramientas manuales, instrumentos y elementos extraños del área de trabajo?
+                    <span class="checklist-note">Revisión visual exhaustiva del vano del motor y bancadas.</span></label>
                 </div>
-
-                <button id="btn-finalizar" disabled>Certificar Cierre Exitoso de Mantención</button>
+                <div class="checklist-item" style="background: #fff;">
+                    <input type="checkbox" id="cierre-2" class="chk-cierre">
+                    <label for="cierre-2" class="checklist-text">¿Se confirmó la ausencia absoluta de piezas, trapos, tornillos u objetos sueltos al interior de los conductos y cámara del motor?
+                    <span class="checklist-note">Prevención crítica de daños catastróficos por ingestión de cuerpos extraños.</span></label>
+                </div>
+                <div class="checklist-item" style="background: #fff;">
+                    <input type="checkbox" id="cierre-3" class="chk-cierre">
+                    <label for="cierre-3" class="checklist-text">¿Quedaron todas las piezas, abrazaderas, uniones y pernos firmemente instalados en su lugar con su respectivo torque?
+                    <span class="checklist-note">Verificación cruzada de estanqueidad en línea de admisión y sobrealimentación.</span></label>
+                </div>
+                <div class="checklist-item" style="background: #fff;">
+                    <input type="checkbox" id="cierre-4" class="chk-cierre">
+                    <label for="cierre-4" class="checklist-text">¿Se realizó el orden, limpieza total de la zona de trabajo y disposición de residuos peligrosos (MARPOL)?
+                    <span class="checklist-note">Área de operación despejada, libre de derrames y herramientas ordenadas en carro.</span></label>
+                </div>
             </div>
 
-            <div id="mensaje-exito">
-                🎉 ¡Mantenimiento certificado con éxito! El sistema de Admisión y Sobrealimentación del Doosan P126TI-II se encuentra operativo y seguro para liberar el bloqueo LOTO.
-            </div>
+            <button id="btn-finalizar" disabled>Certificar Cierre Exitoso de Mantención</button>
+        </div>
 
+        <div id="mensaje-exito">
+            🎉 ¡Mantenimiento certificado con éxito! El sistema de Admisión y Sobrealimentación del Doosan P126TI-II se encuentra operativo y seguro para liberar el bloqueo LOTO.
         </div>
 
         <div class="footer">
@@ -279,7 +352,6 @@
             const checkboxesSeg = document.querySelectorAll('.chk-seguridad');
             const btnDesbloquear = document.getElementById('btn-desbloquear');
             const seccionMantenimiento = document.getElementById('seccion-mantenimiento');
-            const seccionEncuesta = document.getElementById('seccion-encuesta');
 
             const checkboxesCierre = document.querySelectorAll('.chk-cierre');
             const btnFinalizar = document.getElementById('btn-finalizar');
@@ -331,8 +403,7 @@
 
             btnDesbloquear.addEventListener('click', function() {
                 seccionMantenimiento.style.display = 'block';
-                seccionEncuesta.style.display = 'none';
-                window.scrollTo(0, 0);
+                seccionMantenimiento.scrollIntoView({ behavior: 'smooth' });
             });
 
             btnFinalizar.addEventListener('click', function() {
